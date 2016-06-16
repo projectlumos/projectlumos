@@ -18,4 +18,9 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'', include('learn.urls')),
 ]
+
+# handler404 = 'learn.views.page_not_found'
+# handler500 = 'learn.views.page_not_found'
+# handler400 = 'learn.views.page_not_found'

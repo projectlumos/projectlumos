@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>hello</title>
+</head>
+<body>
+{% for section, dict in data.items %}
+    
+    <h4>
+        {{ section }}
+    </h4>
+    
+    <div>
+        <ul>
+            {% for name, url in dict.items %}
+                <li>
+                    <a href="{% if section == 'Domains' %}domain/{% else %}technology/{% endif %}{{ url }}">{{ name }}</a>
+                </li>
+            {% endfor %}            
+        </ul>        
+    </div>
+{% endfor %}
+</body>
+</html>

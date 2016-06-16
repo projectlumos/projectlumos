@@ -21,7 +21,7 @@ def get_domains_and_slugs():
     {domain_name: slug}
     """
     return_data = {}
-    domain_slugs = Domain.objects.filter(active=1)
+    domain_slugs = Domain.objects.filter(active=1).order_by('name')
     if domain_slugs:
         for domain in domain_slugs:
             return_data[domain.name] = domain.slug
@@ -33,7 +33,7 @@ def get_tech_and_slugs():
     {domain_name: slug}
     """
     return_data = {}
-    technology_slugs = Technology.objects.filter(active=1).order_by('')
+    technology_slugs = Technology.objects.filter(active=1).order_by('name')
     if technology_slugs:
         for technology in technology_slugs:
             return_data[technology.name] = technology.slug
