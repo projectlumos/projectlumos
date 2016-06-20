@@ -1,0 +1,12 @@
+SUGGESTIONS
+===============
+- a mini project after every difficulty level
+- add a tech knowledge rating and after entering the rating, it should show possible job profiles
+- recommend newer tech to learn based on an algo
+
+--------------------------------------------------------------------------------------------------------------
+
+IDEAS
+========================
+- create # and @ mentioning systems for site navigation
+- create template tags to add wikipedia functionality
