@@ -5,8 +5,8 @@ urlpatterns = [
    url(r'^$', views.hello),
    # site core urls
    # rhs data
-   url(r'get_domain_resource/(?P<domain_slug>.+)$', views.get_domain_resources_view),
-   url(r'get_tech_resource/(?P<tech_slug>.+)$', views.get_tech_resources_view),
+   url(r'domain/(?P<domain_slug>.+)$', views.get_domain_resources_view),
+   url(r'technology/(?P<tech_slug>.+)$', views.get_tech_resources_view),
    # lhs data (capture clicks for generating wiki in html hover label via ajax)
    url(r'get_label_data/(?P<term>.+)$', views.get_label_data_view),   
    # extra
