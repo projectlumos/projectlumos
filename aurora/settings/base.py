@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,9 +29,6 @@ def get_env_variable(var_name):
         raise ImproperlyConfigured(error_msg)
 
 SECRET_KEY = get_env_variable('SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
 
 ALLOWED_HOSTS = []
 
