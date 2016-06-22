@@ -15,7 +15,6 @@ def get_wiki_data(term):
         return_data['url'] = term_data.url
         return_data['content'] = term_data.content
     except ConnectionError:
-        print "Please check your internet connection"
         return None
 
 def get_similar_search(term):
@@ -28,7 +27,6 @@ def get_similar_search(term):
     try:
         return_data = wikipedia.search(term)
     except ConnectionError:
-        print "Please check your internet connection"
         return None
 
 def get_wiki_summary(term, sentences=3):
@@ -41,5 +39,4 @@ def get_wiki_summary(term, sentences=3):
     try:
         return_data = wikipedia.summary(term, sentences)
     except ConnectionError:
-        print "Please check your internet connection"
         return None
