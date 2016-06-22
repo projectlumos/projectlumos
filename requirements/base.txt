@@ -4,3 +4,4 @@ ipython
 mysql-python
 django-grappelli==2.8.1
 whitenoise
+wikipedia

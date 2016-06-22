@@ -1,5 +1,4 @@
 from learn.models import Technology, Domain, Resources
-import json
 
 def get_all_domains():
     """
@@ -116,7 +115,3 @@ def get_info_by_slug(slug):
         return_data = Technology.objects.get(name=name)
 
     return return_data
-
-def get_wiki_data(term):
-    pass
-
