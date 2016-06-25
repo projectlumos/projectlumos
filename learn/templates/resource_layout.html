@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,432 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   
-  <!-- <link rel="stylesheet" type="text/css" href="page2fn.css"> -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
   <!-- <script src="page2fn.js" type="text/javascript"></script> -->
 
-<style type="text/css">
-  @media only screen and (max-device-width: 480px) {
-    #left {
-      display: none;
-    }
-}
-.container{
-  margin-top: 3.9%;
-  width: 100%;
-}
-.ht{
-  height: 650px;
-}
-html{
-  height: 100%;
-}
-body{
-  max-height: 100%
-}
-#search-btn{
-  float: right;
-  margin-top: 2%;
-}
-#left{
-  margin-top: 1.5%;
-  background-color: lightgrey;
-  overflow: scroll;
-}
-#middle{
-  margin-top: 1%;
-  overflow: scroll;
-  background-color: white;
-}
-#right{
-  padding-top: 30px;
-  margin-top: 1.5%;
-  overflow: scroll;
-  background-color: lightgrey;
-}
-.navbar1-brand {
-  padding: 0%;
-  margin-left: 8px;
-}
-.mar{
-  margin:1%;
-}
-.ytv{
-  height: 100%;
-  width: 100%;
-  text-align: center;
-}
-.videoWrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  padding-top: 25px;
-  height: 0;
-}
-.videoWrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 50px 5px 10px 5px;
-  text-align: center;
-}
-.glyphicon-triangle-bottom {
-  padding-left: 8px;
-}
-a:focus, a:hover, a:active {
-  outline: 0;
-  text-decoration: none;
-}
-.panel {
-  border-width: 0 0 1px 0;
-  border-style: solid;
-  border-color: #fff;
-  background: none;
-  box-shadow: none;
-}
-.panel:last-child {
-  border-bottom: none;
-}
-.panel-group > .panel:first-child .panel-heading {
-  border-radius: 0px;
-}
-.panel-group .panel {
-  border-radius: 0;
-}
-.panel-group .panel + .panel {
-  margin-top: 0;
-}
-.panel-heading {
-  background-color: #009688;
-  border: none;
-  color: #fff;
-  text-align: center;
-  padding: 0%;
-}
-.panel-title a {
-  display: block;
-  color: #fff;
-  padding: 14.02px;
-  position: relative;
-  font-size: 16px;
-  font-weight: 400;
-}
-.panel-title:hover a {
-  color: #009688;
-  background-color: #fff;
-}
-.panel-body {
-  background: #fff;
-  text-align: center;
-}
-.panel-body a {
-  text-decoration: none;
-  color: #000;
-}
-.panel:last-child .panel-body {
-  border-radius: 0 0 4px 4px;
-}
-.panel:last-child .panel-heading {
-  border-radius: 0 0 4px 4px;
-  -webkit-transition: border-radius 0.3s linear 0.2s;
-  transition: border-radius 0.3s linear 0.2s;
-}
-.panel:last-child .panel-heading.active {
-  border-radius: 0;
-  -webkit-transition: border-radius linear 0s;
-  transition: border-radius linear 0s;
-}
-.panel-heading a:before {
-  position: absolute;
-  font-family: 'Material Icons';
-  right: 5px;
-  top: 10px;
-  font-size: 24px;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-.panel-heading.active a:before {
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-}
-.wrap {
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
-}
-#accordion .panel-heading a:before {
-  font-size: 24px;
-  position: absolute;
-  font-family: 'Material Icons';
-  right: 5px;
-  top: 10px;
-  -webkit-transform: rotate(270deg);
-  transform: rotate(270deg);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-#accordion .panel-heading.active a:before {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-#bs-collapse .panel-heading a:after {
-  font-size: 24px;
-  position: absolute;
-  font-family: 'Material Icons';
-  right: 5px;
-  top: 10px;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-#bs-collapse .panel-heading.active a:after {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-#panelinfo>#pheading {
-    color: #31708f;
-    background-color: #d9edf7;
-    border-color: #bce8f1;
-}
-#pheading{
-    padding: 10px 15px;
-    border-bottom: 1px solid transparent;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-color: #bce8f1;
-}
-#rtbt{
-    padding: 15px;
-    border-color: #bce8f1;
-}
-#rtbt:hover{
-  background-color: white;
-}
-#rtbutton{
-  float: left;
-  margin-left: 15px;
-}
-/*Css for content below Youtube video*/
-#toggle{
-  display: none;
-  margin: 1%;
-  padding: 1%;
-  clear: both;
-  background-color: #eee;
-}
-.left {
-  float: left;
-  margin: 2%;
-}
-.right {
-  float: right;
-  margin: 2%;
-}
-.fab{
-  border-radius: 50%;
-  margin:0;
-  padding: 20px;
-}
-.material{
-  position:relative;
-  color:white;
-  margin: 20px auto;
-  height:400px;
-  width:500px;
-  background:#f45673; 
-}
-.ripple{
-  overflow:hidden;
-}
-.ripple-effect{
-  position: absolute;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  background: white;   
-  animation: ripple-animation 2s;
-}
-@keyframes ripple-animation {
-    from {
-      transform: scale(1);
-      opacity: 0.4;
-    }
-    to {
-      transform: scale(100);
-      opacity: 0;
-    }
-}
-button{
-  position: relative;
-  border: none;
-  outline:none;
-  cursor: pointer;
-  background: #89669b;
-  color: white;
-  padding: 18px 60px;
-  border-radius: 2px;
-  font-size: 22px;
-}
-.btn:focus,.btn:active {
-   outline: none !important;
-}
-.rating-loading {
-    width: 25px;
-    height: 25px;
-    font-size: 0;
-    color: #fff;
-    background: transparent url('../img/loading.gif') top left no-repeat;
-    border: none;
-}
-.rating-container .rating {
-    cursor: default;
-    position: relative;
-    vertical-align: middle;
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.rating-disabled .rating {
-    cursor: not-allowed;
-}
-
-.rating-container .star {
-    display: inline-block;
-    margin: 0 3px;
-    text-align: center;
-}
-
-.rating-container .empty-stars {
-    color: #aaa;
-}
-
-.rating-container .filled-stars {
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin: auto;
-    color: #fde16d;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-text-stroke: 1px #777;
-    text-shadow: 1px 1px #999;
-}
-
-.rating-rtl {
-    float: right;
-}
-
-.rating-animate .filled-stars {
-    transition: width 0.25s ease;
-    -o-transition: width 0.25s ease;
-    -moz-transition: width 0.25s ease;
-    -webkit-transition: width 0.25s ease;
-}
-
-.rating-rtl .filled-stars {
-    left: auto;
-    right: 0;
-    -moz-transform: matrix(-1, 0, 0, 1, 0, 0) translate3d(0, 0, 0);
-    -webkit-transform: matrix(-1, 0, 0, 1, 0, 0) translate3d(0, 0, 0);
-    -o-transform: matrix(-1, 0, 0, 1, 0, 0) translate3d(0, 0, 0);
-    transform: matrix(-1, 0, 0, 1, 0, 0) translate3d(0, 0, 0);
-}
-
-.rating-rtl.is-star .filled-stars {
-    right: 0.06em;
-}
-
-.rating-rtl.is-heart .empty-stars {
-    margin-right: 0.07em;
-}
-
-/**
- * Sizes
- */
-.rating-xl {
-    font-size: 4.89em;
-}
-
-.rating-lg {
-    font-size: 3.91em;
-}
-
-.rating-md {
-    font-size: 3.13em;
-}
-
-.rating-sm {
-    font-size: 2.5em;
-}
-
-.rating-xs {
-    font-size: 2em;
-}
-
-.rating-xl {
-    font-size: 4.89em;
-}
-.rating-container .clear-rating {
-    color: #aaa;
-    cursor: not-allowed;
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 60%;
-}
-
-.clear-rating-active {
-    cursor: pointer !important;
-}
-
-.clear-rating-active:hover {
-    color: #843534;
-}
-
-.rating-container .clear-rating {
-    padding-right: 5px;
-}
-.rating-container .caption {
-    color: #999;
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 60%;
-    margin-top: -0.6em;
-}
-.rating-container .caption {
-    margin-left: 5px;
-    margin-right: 0;
-}
-.rating-rtl .caption {
-    margin-right: 5px;
-    margin-left: 0;
-}
-@media print {
-    .rating-container .clear-rating {
-        display: none;
-    }
-}
-@media only screen and (max-device-width: 480px) {
-#left {
-display: none;
-}
-}
-</style>
 <script type="text/javascript">
   /*!
  * @copyright &copy; Kartik Visweswaran, Krajee.com, 2013 - 2016
@@ -1054,7 +635,8 @@ display: none;
               
             <div class="panel-heading sb" role="tab" id="heading_{{ forloop.counter }}">
               <h4 class="panel-title sb">
-                <a role="button" 
+                <a class="changeDesc"
+                  role="button" 
                   data-toggle="collapse" 
                   data-parent="#accordion" 
                   href="#collapse_{{ forloop.counter }}" 
@@ -1077,7 +659,8 @@ display: none;
                     {% for resource in resource_data.resources %}
                     <div class="panel-body sb">
                       <a 
-                      data-resource-desc="{{ resource.desc }}"
+                      class="changeDesc"
+                      data-desc="{{ resource.desc }}"
                       data-resource-diff-level="{{resource.diff_level}}"
                       data-resource-name="{{resource.name}}"
                       data-resource-type="{{resource.media_type}}"
@@ -1155,7 +738,7 @@ display: none;
                 <div class="panel-heading" id="pheading">
                   <h3 class="panel-title">Search</h3>
                 </div>
-              <div class="panel-body" id="rtbt">
+              <div class="panel-body rtbt" id="wikiBox">
                   <input type="text" class="form-control" placeholder="text to search">
                   <button class="btn btn-info" type="button" data-toggle="modal" data-target="#wikki" id="search-btn">Search</button>
               </div>
@@ -1163,12 +746,12 @@ display: none;
             </div><!--end of search bar-->
             
           <!-- description area -->
-            <div class="container">
+            <div class="container" id="descSection">
               <div class="panel panel-info" id="panelinfo">
                 <div class="panel-heading" id="pheading">
-                  <h3 class="panel-title">Description</h3>
+                  <h3 class="panel-title" id="descHeader">Description</h3>
                 </div>
-              <div class="panel-body" id="rtbt">
+              <div class="panel-body rtbt" id="descBox">
                   {{ return_data.slug_desc }}
               </div>
             </div>
@@ -1178,9 +761,9 @@ display: none;
             <div class="container">
               <div class="panel panel-info" id="panelinfo">
                 <div class="panel-heading" id="pheading">
-                  Related Domain
+                  Related Technology
                 </div>
-                <div class="panel-body" id="rtbt">
+                <div class="panel-body rtbt" id="relatedTech">
                 <div class="row">    
                     <button class="btn btn-info mar ripple">tech 1</button>
                     <button class="btn btn-info mar ripple">tech 2</button>
@@ -1198,9 +781,9 @@ display: none;
             <div class="container">
                <div class="panel panel-info" id="panelinfo">
                 <div class="panel-heading" id="pheading">
-                  Related Domain
+                  Related Domains
                 </div>
-                <div class="panel-body" id="rtbt">
+                <div class="panel-body rtbt" id="relatedDomains">
                 <div class="row">
                   <button class="btn btn-info mar ripple">tech 1</button>
                   <button class="btn btn-info mar ripple">tech 2</button>
@@ -1306,7 +889,6 @@ display: none;
    </div>
 </div>
 </div>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script type="text/javascript">
   $(document).ready(function() {
   $('.collapse.in').prev('.panel-heading').addClass('active');
@@ -1354,5 +936,9 @@ display: none;
   });
 })(window, jQuery);
 </script>
+<!-- <script type="text/javascript" src="{% static 'js/layout.js' %}"></script> -->
+<script type="text/javascript" src="/static/js/layout.js"></script>
+
 </body>
+
 </html>

@@ -98,7 +98,7 @@ def get_resources_grouped_by_tech(domain):
                 curr_tech_data['desc'] = technology.desc
             else:
                 print 'adding to an existing tech'
-                curr_tech_data.resources.append(resource_to_data(resource))
+                curr_tech_data['resources'].append(resource_to_data(resource))
 
             return_data[tech_name] = curr_tech_data
     return return_data
@@ -125,7 +125,7 @@ def get_resources_grouped_by_domain(tech):
                 curr_domain_data['resources'] = [resource_to_data(resource)]
                 curr_domain_data['desc'] = domain.desc
             else:
-                curr_domain_data.resources.append(resource_to_data(resource))
+                curr_domain_data['resources'].append(resource_to_data(resource))
 
             return_data[domain_name] = curr_domain_data
     return return_data
