@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="page2fn.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+<script src="page2fn.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed ripple" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="navbar-brand navbar1-brand" href="javascript:void(0)">
+      <button type="button" class="navbar-toggle collapsed ripple" data-toggle="collapse" data-target=".navbar-responsive-collapse1" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      </span>
+      <a class="navbar-brand" href="javascript:void(0)">Brand</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Domain&nbsp;&nbsp;</a></li>
+        <li><a href="#">Technology&nbsp;&nbsp;</a></li>
+        <li><a href="#">Mind Map&nbsp;&nbsp;</a></li>
+      </ul>
+   </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav><!--navbar-->
+<div class="container">
+  <div class="row">
+      <!-- left section -->
+      <div class="col-md-3">
+          <div class="ht navbar-responsive-collapse1" id="left">
+            <div class="container">
+              <h3><center>Technology</center></h3>
+                <hr/>
+              <!--amcha sidebar-->
+                <div class="navbar-collapse collapse navbar-responsive-collapse1">
+                <div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel sb">
+                <div class="panel-heading sb" role="tab" id="headingOne">
+                <h4 class="panel-title sb">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+                  Technology 1<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                </a>
+                </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body sb"><a href="#">Resource 1</a></div>
+                <div class="panel-body sb"><a href="#">Resource 2</a></div>
+                <div class="panel-body sb"><a href="#">Resource 3</a></div>
+                </div>
+                </div>
+                <div class="panel sb">
+                <div class="panel-heading sb" role="tab" id="headingTwo">
+                <h4 class="panel-title sb">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Technology 2<span onclick="myFunction()" id ="myFunc()" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                </a>
+                </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body sb"><a href="#">Resource 1</a></div>
+                <div class="panel-body sb"><a href="#">Resource 2</a></div>
+                <div class="panel-body sb"><a href="#">Resource 3</a></div>
+                </div>
+                </div>
+                <div class="panel sb">
+                <div class="panel-heading sb" role="tab" id="headingThree">
+                <h4 class="panel-title sb">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Technology 3<span id="menu-toggle" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                </a>
+                </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body sb"><a href="#">Resource 1</a></div>
+                <div class="panel-body sb"><a href="#">Resource 2</a></div>
+                <div class="panel-body sb"><a href="#">Resource 3</a></div>
+                </div>
+                </div>
+                <div class="panel sb">
+                <div class="panel-heading sb" role="tab" id="headingFour">
+                <h4 class="panel-title sb">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  Technology 4<span id="menu-toggle" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                </a>
+                </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="panel-body sb"><a href="#">Resource 1</a></div>
+                <div class="panel-body sb"><a href="#">Resource 2</a></div>
+                <div class="panel-body sb"><a href="#">Resource 3</a></div>
+                </div>
+                </div>
+                <div class="panel sb">
+                <div class="panel-heading sb" role="tab" id="headingFive">
+                <h4 class="panel-title sb">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  Technology 5<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                </a>
+                </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                <div class="panel-body sb"><a href="#">Resource 1</a></div>
+                <div class="panel-body sb"><a href="#">Resource 2</a></div>
+                <div class="panel-body sb"><a href="#">Resource 3</a></div>
+                </div>
+                </div>
+      <div class="panel sb">
+        <div class="panel-heading sb" role="tab" id="headingSix">
+          <h4 class="panel-title sb">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          Technology 6<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+        </a>
+      </h4>
+        </div>
+        <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+          <div class="panel-body sb"><a href="#">Resource 1</a></div>
+          <div class="panel-body sb"><a href="#">Resource 2</a></div>
+          <div class="panel-body sb"><a href="#">Resource 3</a></div>
+        </div>
+      </div>
+      <div class="panel sb">
+        <div class="panel-heading sb" role="tab" id="headingSeven">
+          <h4 class="panel-title sb">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          Technology 7<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+        </a>
+      </h4>
+        </div>
+        <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+          <div class="panel-body sb"><a href="#">Resource 1</a></div>
+          <div class="panel-body sb"><a href="#">Resource 2</a></div>
+          <div class="panel-body sb"><a href="#">Resource 3</a></div>
+        </div>
+      </div>
+      <div class="panel sb">
+        <div class="panel-heading sb" role="tab" id="headingEight">
+          <h4 class="panel-title sb">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+          Technology 8<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+        </a>
+      </h4>
+        </div>
+        <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+          <div class="panel-body sb"><a href="#">Resource 1</a></div>
+          <div class="panel-body sb"><a href="#">Resource 2</a></div>
+          <div class="panel-body sb"><a href="#">Resource 3</a></div>
+        </div>
+      </div>
+                </div>
+                </div>
+                <!--amcha sidebar sampla-->
+            
+            </div>
+          </div>
+      </div><!-- end of left section -->
+      <!-- middle section -->
+      <div class="col-md-6">
+          <div class="ht" id="middle">
+            <div class="videoWrapper">
+              <div class="ytv">
+                <center><iframe width="560" height="315" src="https://www.youtube.com/embed/5u8rFbpdvds?list=PLFE2CE09D83EE3E28" frameborder="0" allowfullscreen></iframe></center>
+              </div>
+            </div>
+            <!--The toggle div section with buttons-->
+            <h3>The Title of the video</h3>
+            <div id="toggle">
+              <label>Attribute 1</label>
+          		<div class="progress">
+              <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+                style="width: 25%">25%
+            </div>
+            </div>
+            <label>Attribute 2</label>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+                style="width: 50%">50%
+            </div>
+            </div>
+            <label>Attribute 3</label>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+                style="width: 70%">70%
+            </div>
+            </div>
+            <label>Attribute 4</label>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+                style="width: 100%">100%
+            </div>
+            </div>
+          	</div>
+            <div class="feedback">
+              <div>
+          		<button class="btn btn-info left ripple" id="onToggle">Ratings</button>
+          		<button class="btn btn-info right ripple" data-toggle="modal" data-target="#resfeed">Feeback</button>
+          	</div>
+          	</div>
+          </div>
+      </div><!-- end of middle -->
+          
+          <!-- right section -->
+      <div class="entire">
+      <div class="col-md-3">    
+          <div class="ht" id="right">
+          <!--search bar -->
+            <div class="container" id="search">
+            <div class="panel panel-info" id="panelinfo">
+                <div class="panel-heading" id="pheading">
+                  <h3 class="panel-title">Search</h3>
+                </div>
+              <div class="panel-body" id="rtbt">
+                  <input type="text" class="form-control" placeholder="text to search">
+                  <button class="btn btn-info" type="button" data-toggle="modal" data-target="#wikki" id="search-btn">Search</button>
+              </div>
+            </div>
+            </div><!--end of search bar-->
+            
+          <!-- description area -->
+            <div class="container">
+              <div class="panel panel-info" id="panelinfo">
+                <div class="panel-heading" id="pheading">
+                  <h3 class="panel-title">Description</h3>
+                </div>
+              <div class="panel-body" id="rtbt">This is description
+              </div>
+            </div>
+            </div><!-- end of description -->
+            
+          <!-- related domains -->
+            <div class="container">
+              <div class="panel panel-info" id="panelinfo">
+                <div class="panel-heading" id="pheading">
+                  Related Domain
+                </div>
+                <div class="panel-body" id="rtbt">
+                <div class="row">    
+                    <button class="btn btn-info mar ripple">tech 1</button>
+                    <button class="btn btn-info mar ripple">tech 2</button>
+                    <button class="btn btn-info mar ripple">tech 3</button>
+                </div>
+                <div class="row">    
+                    <button class="btn btn-info mar ripple">tech 1</button>
+                    <button class="btn btn-info mar ripple">tech 2</button>
+                    <button class="btn btn-info mar ripple">tech 3</button>
+                </div>
+                </div>
+              </div>
+            </div><!-- end of related domains -->
+          <!-- related technology -->
+            <div class="container">
+               <div class="panel panel-info" id="panelinfo">
+                <div class="panel-heading" id="pheading">
+                  Related Domain
+                </div>
+                <div class="panel-body" id="rtbt">
+                <div class="row">
+                  <button class="btn btn-info mar ripple">tech 1</button>
+                  <button class="btn btn-info mar ripple">tech 2</button>
+                  <button class="btn btn-info mar ripple">tech 3</button>
+                </div>
+                <div class="row">    
+                    <button class="btn btn-info mar ripple">tech 1</button>
+                    <button class="btn btn-info mar ripple">tech 2</button>
+                    <button class="btn btn-info mar ripple">tech 3</button>
+                </div>    
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>    
+</div><!-- end of right section -->
+
+   <!-- modals -->
+      <div class="modal fade" id="wikki">
+       <div class="modal-dialog">
+           <div class="modal-content">
+               <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Wikki</h3>
+                </div>
+
+               <!-- body (form) -->
+               <div class="modal-body">
+                    <div>
+                       <h4>Search</h4>
+                    </div>  
+                    <form role="form">
+                        <div class="form-group">
+                            <label>Word :</label><textarea class="form-control" rows="4"></textarea>
+                        </div>
+                    </form>
+                  </div>
+
+
+               <!-- footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+           </div>
+       </div>
+   </div>
+<!-- modals -->
+
+
+      <div class="modal fade" id="resfeed">
+       <div class="modal-dialog">
+           <div class="modal-content">
+               <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Resource Feedback</h3>
+                </div>
+
+               <!-- body (form) -->
+               <div class="modal-body">
+                    <div>
+                      Enter score for the resource according to the following attribute in range of 0 to 5 
+                    </div>  
+                    <form role="form">
+                    <!-- first row -->
+                        <div class="form-group">
+                           <label for="input-7-xs" class="control-label">Attribute 1</label>
+                           <input id="input-7-xs" name="input-7-xs" class="rating rating-loading" data-min="0" data-max="5" data-step="0.5" data-size="xs">
+                       </div>
+                    <!-- first row ends here -->   
+
+                    <!-- second row row -->
+                        <div class="form-group">
+                           <label for="input-7-xs" class="control-label">Attribute 2</label>
+                           <input id="input-7-xs" name="input-7-xs" class="rating rating-loading" data-min="0" data-max="5" data-step="0.5" data-size="xs">   
+                       </div>
+                    <!-- second row ends here -->   
+
+
+                    <!-- third row -->
+                        <div class="form-group">
+                           <label for="input-7-xs" class="control-label">Attribute 3</label>
+                           <input id="input-7-xs" name="input-7-xs" class="rating rating-loading" data-min="0" data-max="5" data-step="0.5" data-size="xs">   
+                       </div>
+                    <!-- third row ends here -->   
+
+
+                    <!-- fourth row -->
+                        <div class="form-group">
+                           <label for="input-7-xs" class="control-label">Attribute 4</label>
+                           <input id="input-7-xs" name="input-7-xs" class="rating rating-loading" data-min="0" data-max="5" data-step="0.5" data-size="xs">   
+                       </div>
+                    <!-- fourth row ends here -->   
+
+               <!-- footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary ripple" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary ripple" id="checksignup" onclick="resfeedsend()">Send</button>
+                </div>
+           </div>
+       </div>
+   </div>
+</div>
+</div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+  $('.collapse.in').prev('.panel-heading').addClass('active');
+  $('#accordion, #bs-collapse')
+    .on('show.bs.collapse', function(a) {
+      $(a.target).prev('.panel-heading').addClass('active');
+    })
+    .on('hide.bs.collapse', function(a) {
+      $(a.target).prev('.panel-heading').removeClass('active');
+    });
+    $("#onToggle").click(function(){
+    $("#toggle").slideToggle("slow");
+    });
+    $(".navbar-toggle").click(function(){
+    $("#left").slideDown("slow");
+    });
+});
+</script>
+<script type="text/javascript">
+  (function (window, $) {
+  $(function() {
+    $('.ripple').on('click', function (event) {
+      event.preventDefault();
+      var $div = $('<div/>'),
+          btnOffset = $(this).offset(),
+          xPos = event.pageX - btnOffset.left,
+          yPos = event.pageY - btnOffset.top;
+      $div.addClass('ripple-effect');
+      var $ripple = $(".ripple-effect");
+      
+      $ripple.css("height", $(this).height());
+      $ripple.css("width", $(this).height());
+      $div
+        .css({
+          top: yPos - ($ripple.height()/2),
+          left: xPos - ($ripple.width()/2),
+          background: $(this).data("ripple-color")
+        }) 
+        .appendTo($(this));
+
+      window.setTimeout(function(){
+        $div.remove();
+      }, 2000);
+    });
+  });
+})(window, jQuery);
+</script>
+</body>
+</html>
