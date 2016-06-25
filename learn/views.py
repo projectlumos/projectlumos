@@ -4,7 +4,7 @@ import json
 from pprint import pprint
 
 #ideal-guacamole imports
-from learn.utils import get_all_domains, get_all_technologies, get_resources_grouped_by_tech, get_resources_grouped_by_domain, get_domains_and_slugs, get_tech_and_slugs
+from learn.utils.aurora_utils import get_all_domains, get_all_technologies, get_resources_grouped_by_tech, get_resources_grouped_by_domain, get_domains_and_slugs, get_tech_and_slugs
 # Create your views here.
 
 def hello(request):
