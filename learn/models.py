@@ -62,13 +62,13 @@ class Resources(RowInfo):
     domain = models.ManyToManyField(Domain)
     name = models.CharField(max_length=100, unique=True)
     desc = models.TextField(null=True, blank=True)
-    link = models.CharField(max_length=100)
+    link = models.TextField()
     diff_levels = (
                 (0, 'Beginner'),
                 (1, 'Intermediate'),
                 (2, 'Advanced'),
     )
-    diff_level = models.IntegerField(choices=diff_levels, null=True, blank=True)
+    diff_level = models.IntegerField(choices=diff_levels)
     diff_sort = models.IntegerField(default=999)
     data_type = (
                 (0, 'Video'),
