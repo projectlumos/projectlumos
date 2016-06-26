@@ -664,11 +664,16 @@
                       data-resource-diff-level="{{resource.diff_level}}"
                       data-resource-name="{{resource.name}}"
                       data-resource-type="{{resource.media_type}}"
-                      data-related-resource-tech="{{resource.related_technologies}}"
-                      data-related-resource-domain="{{resource.related_domains}}"
-                      href="{{resource.link}}"
-                      target="_blank">
-                        {{ resource.name }}
+                      data-related-tech="{{resource.related_technologies}}"
+                      data-related-domain="{{resource.related_domains}}"
+                      {% if resource.media_type != 0 %}
+                        href="{{resource.link}}"
+                        target="_blank"
+                      {% else %}
+                      data-yt-link="{{resource.link}}"
+                      {% endif %}
+                    >
+                    {{ resource.name }}
                       </a>
                     </div>
                     {% endfor %}
@@ -688,7 +693,7 @@
           <div class="ht" id="middle">
             <div class="videoWrapper">
               <div class="ytv">
-                <center><iframe width="560" height="315" src="https://www.youtube.com/embed/5u8rFbpdvds?list=PLFE2CE09D83EE3E28" frameborder="0" allowfullscreen></iframe></center>
+                <center id="yt-embedded-player"><iframe width="560" height="315" src="https://www.youtube.com/embed/5u8rFbpdvds?list=PLFE2CE09D83EE3E28" frameborder="0" allowfullscreen></iframe></center>
               </div>
             </div>
             <!--The toggle div section with buttons-->
@@ -739,8 +744,8 @@
                   <h3 class="panel-title">Search</h3>
                 </div>
               <div class="panel-body rtbt" id="wikiBox">
-                  <input type="text" class="form-control" placeholder="text to search">
-                  <button class="btn btn-info" type="button" data-toggle="modal" data-target="#wikki" id="search-btn">Search</button>
+                  <input id="search-term" type="text" class="form-control" placeholder="text to search">
+                  <button class="btn btn-info" type="button" id="search-btn">Search</button>
               </div>
             </div>
             </div><!--end of search bar-->
@@ -808,20 +813,27 @@
                <!-- header -->
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h3 class="modal-title">Wikki</h3>
+                    <h3 class="modal-title">Wiki Search</h3>
                 </div>
 
-               <!-- body (form) -->
+               <!-- body -->
                <div class="modal-body">
                     <div>
-                       <h4>Search</h4>
-                    </div>  
-                    <form role="form">
-                        <div class="form-group">
-                            <label>Word :</label><textarea class="form-control" rows="4"></textarea>
+                       <h3 id="modalTerm"></h3>
+                    </div>
+                
+                    <div class="form-group" id="modalDesc">
+                    </div>
+                    
+                    <div class="modalRelatedTerms"  style="display: none;">
+                        <div>
+                            <h4>Related Terms</h4>
                         </div>
-                    </form>
-                  </div>
+
+                        <div class="form-group" id="modalTerms">
+                            
+                        </div>
+                </div>
 
 
                <!-- footer -->

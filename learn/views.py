@@ -1,11 +1,16 @@
+# django imports
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+
+# standart imports
 import json
 from pprint import pprint
 
 #aurora imports
 from learn.models import Domain, Technology
 from learn.utils.aurora_utils import get_all_domains, get_all_technologies, get_resources_grouped_by_tech, get_resources_grouped_by_domain, get_domains_and_slugs, get_tech_and_slugs
+from learn.utils.wikipedia_utils import get_wiki_modal_data
 # Create your views here.
 
 def hello(request):
@@ -62,4 +67,16 @@ def download_all_tech_data_view(request):
     pass
 
 def get_wiki_view(request):
-    pass
+    print request
+
+
+@csrf_exempt
+def get_wiki_view(request):
+    wiki_data = False
+    if request.method == 'POST' and request.is_ajax():
+        json_string = request.body.decode(encoding='UTF-8')
+        data = json.loads(json_string)
+        search_term =  str(data['search-term'])
+        wiki_data = get_wiki_modal_data(term=search_term)
+        print wiki_data
+    return HttpResponse(json.dumps(wiki_data))

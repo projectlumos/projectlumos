@@ -201,11 +201,11 @@ a:focus, a:hover, a:active {
     border-bottom-right-radius: 0px;
     border-color: #bce8f1;
 }
-#rtbt{
+.rtbt{
     padding: 15px;
     border-color: #bce8f1;
-}
-#rtbt:hover{
+  }
+.rtbt:hover{
   background-color: white;
 }
 #rtbutton{

@@ -10,3 +10,27 @@ IDEAS
 ========================
 - create # and @ mentioning systems for site navigation
 - create template tags to add wikipedia functionality
+
+=====================================================================================
+abhishek sunday hangouts.
+
+- detect whether a yt video then open in iframe else new tab
+- hyperk=link related wiki searches by replacing space with _
+- convert to array, change to toUpperCase, join array
+- if multiple links, create hyper links for modal
+- original link at the bottom
+
+
+- relatedDomains
+- relatedTech
+
+==========================================================================
+- Feedback form should be a new page
+- different divs for diff forms
+- not actually forms, but csrf exempt ajax calls
+
+- model FeedbackForms for storing details and desc of forms as extracted from Abhishek's JS
+- model UserFeedback to have a FK to FeedbackForms and store the content received via ajax calls.
+
+- add a custom template in the forms (4 + 1 total forms)
+- this template will be 
