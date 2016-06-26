@@ -77,10 +77,13 @@ class Resources(RowInfo):
                 (3, 'Other')
                 )
     media_type = models.IntegerField(choices=data_type, default=3)
+    is_youtube = models.BooleanField(default=False)
     slug = models.SlugField()
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
+        if ("youtube" in self.link) or ("youtu.be" in self.link):
+            self.is_youtube = True
         super(Resources, self).save(*args, **kwargs)
     
     def __str__(self):
