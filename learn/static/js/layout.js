@@ -55,6 +55,7 @@ $(document).ready(function() {
         //refine the related term class hiding process
         //please change all the relevant class names and id names to something more readable.
         $(".modalRelatedTerms").hide();
+        $("#modalOtherLinks").hide();
         $("#modalTerm").text(input_term);
         $("#modalDesc").text("unhide the wait gyplh div");
         $("#wikki").modal("show");
@@ -71,16 +72,40 @@ $(document).ready(function() {
                 data = $.parseJSON(data);
                 
                 if (data){
-                    wiki_summ = data['summary'];
+                    console.log('---------');
+                    console.log(typeof(data['summary_data']['summary_present']));
+                    console.log((data['summary_data']['summary_present']));
+                    if (data['summary_data']['summary_present'] === true){
+                        wiki_summ = data['summary_data']['summary_content'];
+                        $("#modalDesc").text(wiki_summ);
+                    }
+                    else{
+                        var other_links =  data['summary_data']['other_links'];
+                        var other_links_struct = "<div>";
+                        $.each(other_links, function(term, link) {
+                             console.log(term, link);
+                             other_links_struct += "<p><a href='"+link+"' target='_blank'>"+term+"</a></p>";
+                        });
+                        other_links_struct += "</div>";
+                        $("#modalOtherLinks").html(other_links_struct);
+                        $("#modalOtherLinks").show();
+                    }//if other links
 
                     related_terms = data['related_terms'];                    
-                    related_terms = related_terms.join(', ');
+                    var related_terms_struct = "<div>";  
+
+                    $.each(related_terms, function(term, link) {
+                         console.log(term, link);
+                         related_terms_struct += "<a href='"+link+"' target='_blank'>"+term+"</a>, ";
+                    });
+                    related_terms_struct += "</div>";                  
+
+
+                    // console.log(related_terms);
+                    // console.log(wiki_summ);
                     
-                    console.log(related_terms);
-                    console.log(wiki_summ);
                     
-                    $("#modalDesc").text(wiki_summ);
-                    $("#modalTerms").text(related_terms)
+                    $("#modalTerms").html(related_terms_struct);
                     $(".modalRelatedTerms").show();
 
                 }//if
