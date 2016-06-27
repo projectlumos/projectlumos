@@ -1,0 +1,376 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  
+  <!-- jquery -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!-- material design -->
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/bootstrap.material-design/0.5.10/css/bootstrap-material-design.css">
+  <script src="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.10/js/material.min.js"></script>
+  <script src="http://cdn.jsdelivr.net/bootstrap.material-design/0.5.10/js/ripples.min.js"></script>
+  
+
+  <!-- custom scripts -->
+  <link rel="stylesheet" type="text/css" href="{%static 'css/final.css' %}"><!-- custom css -->
+
+  <script type="text/javascript" src="{% static 'js/final.js' "></script><!-- custom js -->
+  <script type="text/javascript" src="/static/js/layout.js"></script>
+
+</head>
+<body>
+
+<!-- navbar -->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed ripple right-btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse2" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>
+      </button>
+      <span class="left-btn" href="javascript:void(0)">
+        <button type="button" class="navbar-toggle collapsed ripple" data-toggle="collapse" data-target="  .navbar-responsive-collapse1" aria-expanded="false">
+            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>
+        </button>
+      </span>
+      <a class="navbar-brand" href="/">Brand</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse2">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Domain&nbsp;&nbsp;</a></li>
+            <li><a href="#">Technology&nbsp;&nbsp;</a></li>
+            <li><a href="#">Mind Map&nbsp;&nbsp;</a></li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav><!--navbar-->
+
+<!-- layout of page starts -->
+
+<div class="container">
+    <div class="row">
+        
+        <!-- left section -->
+        <div class="col-md-3">
+            <div class="div-height navbar-responsive-collapse1" id="left">
+                <div class="container">
+                    <h3><center>Technology</center></h3>
+                    <hr/>
+                    <div class="well">
+                    <!--accordian sidebar-->
+
+                    <div class="navbar-collapse collapse navbar-responsive-collapse1">
+                        <div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true">
+                        
+                        {% for resource_container, resource_data in return_data.all_resources.items %}
+
+                            <div class="panel sb">
+                                <div class="panel-heading sb" role="tab" id="heading_{{ forloop.counter }}">
+                                    <h4 class="panel-title sb">
+
+                                    <a class="changeDesc"
+                                      role="button" 
+                                      data-toggle="collapse" 
+                                      data-parent="#accordion" 
+                                      href="#collapse_{{ forloop.counter }}" 
+                                      aria-expanded="false" 
+                                      aria-controls="collapse_{{ forloop.counter }}"
+                                      data-desc="{{resource_data.desc}}"
+                                      {#
+                                      data-related-domains="{{resource_data.related_domains}"
+                                      data-related-techs="{{resource_data.related_technologies}}"
+                                      #}
+                                      >
+                                          {{ resource_container }}
+                                          <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                                      </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse_{{ forloop.counter }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_{{ forloop.counter }}">
+                            
+                                {% for resource in resource_data.resources %}
+                                <div class="panel-body sb" style="background-color:lightgrey;">
+                                  <a 
+                                  class="changeDesc"
+                                  data-desc="{{ resource.desc }}"
+                                  data-resource-diff-level="{{resource.diff_level}}"
+                                  data-resource-name="{{resource.name}}"
+                                  data-resource-type="{{resource.media_type}}"
+                                  data-related-tech="{{resource.related_technologies}}"
+                                  data-related-domain="{{resource.related_domains}}"
+                                  {% if resource.media_type != 0 %}
+                                    href="{{resource.link}}"
+                                    target="_blank"
+                                  {% else %}
+                                  data-yt-link="{{resource.link}}"
+                                  {% endif %}
+                                >
+                                {{ resource.name }}
+                                  </a>
+                                </div>
+                                {% endfor %}
+                  
+
+
+                                </div>
+                            </div><!-- resource_container ends -->
+                        {% endfor %}
+                        </div>
+                    </div>
+                    <!-- end of accordion sidebar-->
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+      <!-- end of left section -->
+
+
+      <!-- middle section -->
+      <div class="col-md-6">
+        <div class="div-height" id="middle">
+
+            <!-- youtube embedded -->
+            <div class="videoWrapper">
+                <center id="yt-embedded-player"><iframe width="560" height="315" src="https://www.youtube.com/embed/5u8rFbpdvds?list=PLFE2CE09D83EE3E28" frameborder="0" allowfullscreen></iframe></center>
+            </div>
+
+            <h3>The Title of the video</h3>
+
+            <!--The hidden toggle section-->
+            <div id="toggle">
+                <!--progress bars-->
+                <label>Attribute 1</label>
+                <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+                    style="width: 25%">25%
+                </div>
+            </div>
+
+            <label>Attribute 2</label>
+            <div class="progress progress-striped">
+                <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+                style="width: 50%">50%
+            </div>
+        </div>
+
+        <label>Attribute 3</label>
+        <div class="progress progress-striped">
+            <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+            style="width: 70%">70%
+        </div>
+      </div>
+
+      <label>Attribute 4</label>
+      <div class="progress progress-striped">
+        <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+        style="width: 100%">100%
+      </div>
+    </div>
+  </div>
+  <!-- resource rating and feedback  buttons --> 
+  <div>
+    <a href="javascript:void(0)" class="btn btn-raised btn-primary rating " id="onToggle">RATINGS</a>
+    <a href="javascript:void(0)" class="btn btn-raised  btn-primary feedbk" data-controls-modal="#resfeed" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#resfeed" style="float: right;">FEEDBACK</a>
+  </div>
+</div>
+</div>
+      <!-- end of middle -->
+
+      <!-- right section -->
+      <div class="col-md-3">    
+        <div class="div-height" id="right">
+
+            <!--search bar -->
+            <div class="container" id="search">
+                <div class="rightpanelinfo">
+                    <div class="rightpanelheading">
+                        <h3 class="panel-title">Search</h3>
+                    </div>
+                    <div class="rightpanelbody">
+                        <div class="form-group label-floating" id="wikiBox">
+                            <input id="search-term" type="text" class="form-control" placeholder="Text to search">
+                            <p class="help-block">Search whatever you wish</p>
+                        </div>    
+                        <center><a href="javascript:void(0)" class="btn btn-raised btn-primary ripple" id="search-btn">SEARCH</a></center>
+                    </div>
+                </div>
+            </div><!--end of search bar-->
+            
+            <!-- description area -->
+            <div class="desc">  <!--for description spacing-->
+                <div class="container">
+                    <div class="rightpanelinfo">
+                        <div class="rightpanelheading">
+                            <h3 class="panel-title" id="descHeader">{{return_data.slug_name}}</h3>
+                        </div>
+                        <div class="rightpanelbody" id="descBox">{{ return_data.slug_desc }}
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end of description -->
+            
+            <!-- related domains -->
+            <div class="related-dom"><!--for related domains spacing-->
+                <div class="container">
+                    <div class="rightpanelinfo">
+                        <div class="rightpanelheading">
+                            <h3 class="panel-title">
+                                Related Domain
+                            </h3>
+                        </div>
+                        <div class="rightpanelbody">
+                            <div class="row">    
+                                <a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 1</a>
+                                <a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 2</a>
+                                <a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 3</a>
+                            </div>
+                            <div class="row">    
+                                <a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 1</a>
+                                <a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 2</a>
+                                <a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 3</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end of related domains -->
+                
+                <!-- related technology -->
+                <div class="related-tech"><!--for related technology spacing-->
+                    <div class="container">
+                        <div class="rightpanelinfo">
+                            <div class="rightpanelheading">
+                                <h3 class="panel-title">
+                                    Related Technology
+                                </h3>
+                            </div>
+                            <div class="rightpanelbody">
+                                <div class="row">    
+                                    <a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 1</a>
+                                    <a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 2</a>
+                                    <a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 3</a>
+                                </div>
+                                <div class="row">    
+                                    <a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 1</a>
+                                    <a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 2</a>
+                                    <a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 3</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- end of related technology -->
+                </div><!-- id='right' -->
+            </div> <!-- col-md- 3 -->   
+     <!-- end of right section -->
+
+     <!--  wiki modal -->
+     <div class="modal fade" id="wikki">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- wiki header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Wikipedia Search</h3>
+                </div>
+
+                <!--body (form) -->
+                <div class="modal-body">
+                    <div >
+                       <h3 id="modalTerm"></h3>
+                    </div>
+
+                    <div class="even_spacing" id="loadingDiv">
+                        <center><img class="loadingimg" src="/static/media/loader.gif"></center>
+                    </div>
+                    
+                    <div id="modalDesc">
+                    </div>
+
+                    <div id="modalOtherLinks">
+                    </div>
+
+                    <div class="modalRelatedTerms"  style="display: none;">
+                        <h4>Related Terms :</h4>
+                        <div class="even_spacing" id="modalTerms">
+                            <a href="#" class="even_spacing">term1</a>
+                            <a href="#" class="even_spacing">term1</a>
+                            <a href="#" class="even_spacing">term1</a>
+                            <a href="#" class="even_spacing">term1</a>
+                        </div>  
+                    </div>
+                </div>
+
+                <!-- footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-raised btn-primary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+     </div><!-- end of wiki modal -->
+
+     <!-- resfeed modal -->
+     <div class="modal fade" id="resfeed">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Resource Feedback</h3>
+                </div>
+
+                <!-- body (form) -->
+                <div class="modal-body">
+                    <div class="even_spacing">
+                        <h4>Select a score for each attribute for the resource</h4>
+                        <br>
+                    </div>  
+                    <div class="form-group even_spacing">
+                        <h5><b>Attribute 1 :</b></h5>
+                        <div class="range">
+                            <input type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput1(this.value);">
+                            <center><b><div class="resourcefeedsliderinput" id="textInput1">Not Rated</div></b></center>
+                        </div>
+                        <h5><b>Attribute 2 :</b></h5>
+                        <div class="range">
+                            <input type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput2(this.value);">
+                            <center><b><div class="resourcefeedsliderinput" id="textInput2">Not Rated</div></b></center>
+                        </div>
+                        <h5><b>Attribute 3 :</b></h5>
+                        <div class="range">
+                            <input type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput3(this.value);">
+                            <center><b><div class="resourcefeedsliderinput" id="textInput3">Not Rated</div></b></center>
+                        </div>
+                        <h5><b>Attribute 4 :</b></h5>
+                        <div class="range">
+                            <input type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput4(this.value);">
+                            <center><b><div class='resourcefeedsliderinput' id="textInput4">Not Rated</div></b></center>
+                        </div>
+                    </div>                 
+                </div>
+
+                <!--resfeed footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-raised btn-primary">Send</button>
+                    <button type="button" class="btn btn-raised btn-primary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+     </div><!-- end of wiki modal -->
+   </div>  <!-- layout row -->  
+ </div> <!-- layout container -->
+</body> 
+</html>
