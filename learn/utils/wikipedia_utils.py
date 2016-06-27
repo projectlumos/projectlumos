@@ -6,7 +6,7 @@ def wiki_term_to_url(terms_list):
     takes a term list and returns a dict
     which contains the term and the wikipedia url
     """
-    wiki_data = {curr_term: 'http://www.wikipedia.org/wiki/' + curr_term.lower().replace(' ','_') for curr_term in terms_list}
+    wiki_data = {curr_term: 'https://en.wikipedia.org/wiki/' + curr_term.lower().replace(' ','_') for curr_term in terms_list}
     return wiki_data
 
 def get_wiki_data(term):
