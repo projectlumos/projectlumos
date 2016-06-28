@@ -13,6 +13,7 @@ $(document).ready(function() {
         var term = $(this).text()
         
         if (yt_link){
+            
             //change youtube url 
             //display youtube widget
             console.log("changing the youtube link");

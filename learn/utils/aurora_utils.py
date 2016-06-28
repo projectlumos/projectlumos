@@ -109,7 +109,8 @@ def resource_to_data(resource):
     return_resource['diff_sort'] = resource.diff_sort
     return_resource['media_type'] = resource.media_type
     return_resource['slug'] = resource.slug
-
+    return_resource['is_youtube'] = resource.is_youtube
+    
     return_resource['related_technologies'], return_resource['related_domains'] = get_related_data(resource)
 
     return return_resource

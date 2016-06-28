@@ -33,7 +33,7 @@ def get_domain_resources_view(request, domain_slug):
         print e
         return HttpResponse(json.dumps("500 error"))
     pprint(return_data)
-    return render(request, 'resource_layout_2.html', {'return_data': return_data})
+    return render(request, 'resource_layout.html', {'return_data': return_data})
 
 def get_tech_resources_view(request, tech_slug):
     print tech_slug
