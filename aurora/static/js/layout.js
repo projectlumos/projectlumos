@@ -56,9 +56,10 @@ $(document).ready(function() {
         
         //refine the related term class hiding process
         //please change all the relevant class names and id names to something more readable.
+        $("#modalDesc").hide();
         $(".modalRelatedTerms").hide();
         $("#modalOtherLinks").hide();
-        $("#modalTerm").text(input_term.toUpperCase());
+        $("#modalTerm").text(input_term);
         $("#wikki").modal("show");
 
         $.ajax({
@@ -78,8 +79,8 @@ $(document).ready(function() {
                     console.log((data['summary_data']['summary_present']));
                     if (data['summary_data']['summary_present'] === true){
                         wiki_summ = data['summary_data']['summary_content'];
-
                         $("#modalDesc").text(wiki_summ);
+                        $("#modalDesc").show();
                     }
                     else{
                         var other_links =  data['summary_data']['other_links'];
@@ -90,19 +91,20 @@ $(document).ready(function() {
                         });
                         other_links_struct += "</div>";
 
-                        $("#loadingDiv").hide();
                         $("#modalOtherLinks").html(other_links_struct);
                         $("#modalOtherLinks").show();
                     }//if other links
 
                     related_terms = data['related_terms'];                    
-                    var related_terms_struct = "<div>";  
+                    var related_terms_struct = "<div> | ";  
 
                     $.each(related_terms, function(term, link) {
                          console.log(term, link);
-                         related_terms_struct += "<a href='"+link+"' target='_blank'>"+term+"</a>, ";
+                         related_terms_struct += "<a class='even_spacing' href='"+link+"' target='_blank'>"+term+"</a> | ";
                     });
-                    related_terms_struct += "</div>";                  
+                    related_terms_struct += "</div>";
+
+                    $("#loadingDiv").hide();
 
 
                     // console.log(related_terms);
@@ -121,7 +123,6 @@ $(document).ready(function() {
                 $("#modalDesc").text(error_msg);
             }
         });//ajax call
-        $("#loadingDiv").hide();
 
     };//change_model_content function
 
@@ -139,3 +140,69 @@ $(document).ready(function() {
 
 
 });//document ready
+
+
+// SE js
+// 
+// /* for accordion */
+$(document).ready(function() {
+  $('.collapse.in').prev('.panel-heading').addClass('active');
+  $('#accordion, #bs-collapse')
+  .on('show.bs.collapse', function(a) {
+    $(a.target).prev('.panel-heading').addClass('active');
+  })
+  .on('hide.bs.collapse', function(a) {
+    $(a.target).prev('.panel-heading').removeClass('active');
+  });
+    $("#onToggle").click(function(){  //to show or hide progress 
+      $("#toggle").slideToggle("slow");
+    });
+    $(".navbar-toggle").click(function(){  
+      $("#left").slideDown("slow");
+    });
+    $(".btn").click(function(){
+      $(".btn-primary").css("box-shadow","none");
+    });
+  });
+
+//ripple effect for buttons
+
+(function (window, $) {
+  $(function() {
+    $('.ripple').on('click', function (event) {
+      event.preventDefault();
+      var $div = $('<div/>'),
+      btnOffset = $(this).offset(),
+      xPos = event.pageX - btnOffset.left,
+      yPos = event.pageY - btnOffset.top;
+      $div.addClass('ripple-effect');
+      var $ripple = $(".ripple-effect");
+      $div
+      .css({
+        top: yPos - ($ripple.height()/2),
+        left: xPos - ($ripple.width()/2),
+        background: $(this).data("ripple-color")
+      }) 
+      .appendTo($(this));
+
+      window.setTimeout(function(){
+        $div.remove();
+      }, 2000);
+    });
+  });
+})(window, jQuery);
+
+    //to display value of sliders
+
+    function updateTextInput1(val) {
+      document.getElementById('textInput1').innerHTML=val; 
+    }
+    function updateTextInput2(val) {
+      document.getElementById('textInput2').innerHTML=val; 
+    }
+    function updateTextInput3(val) {
+      document.getElementById('textInput3').innerHTML=val; 
+    }
+    function updateTextInput4(val) {
+      document.getElementById('textInput4').innerHTML=val; 
+    }
