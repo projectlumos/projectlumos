@@ -39,6 +39,18 @@ def get_tech_and_slugs():
             return_data[technology.name] = technology.slug
     return return_data
 
+def extract_related_info(raw_data):
+    print raw_data
+    return_data = []
+    for key, value in raw_data.items():
+        curr_data = {}
+        curr_data['name'] = key.name
+        curr_data['slug'] = key.slug
+        curr_data['freq'] = value
+        return_data.append(curr_data)
+    # return_data = sorted(return_data, key=lamba x: int(x['freq']), reverse=True)[:9]
+    return return_data
+
 def get_aggr_related_data(resources):
     """
     takes in a array of resources 
@@ -59,6 +71,9 @@ def get_aggr_related_data(resources):
         all_domains.extend(curr_domains)
     all_techs = dict(Counter(all_techs))
     all_domains = dict(Counter(all_domains))
+
+    all_techs = extract_related_info(all_techs)
+    all_domains = extract_related_info(all_domains)
     return all_techs, all_domains
 
 
@@ -76,6 +91,10 @@ def get_related_data(resource):
     all_domains.extend(curr_domains)
     all_techs = dict(Counter(all_techs))
     all_domains = dict(Counter(all_domains))
+
+    all_techs = extract_related_info(all_techs)
+    all_domains = extract_related_info(all_domains)
+    
     return all_techs, all_domains
 
 def resource_to_data(resource):

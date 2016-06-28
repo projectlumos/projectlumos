@@ -91,10 +91,8 @@
                                       aria-expanded="false" 
                                       aria-controls="collapse_{{ forloop.counter }}"
                                       data-desc="{{resource_data.desc}}"
-                                      {#
                                       data-related-domains="{{resource_data.related_domains}"
                                       data-related-techs="{{resource_data.related_technologies}}"
-                                      #}
                                       >
                                           {{ resource_container }}
                                           <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
@@ -111,8 +109,8 @@
                                   data-resource-diff-level="{{resource.diff_level}}"
                                   data-resource-name="{{resource.name}}"
                                   data-resource-type="{{resource.media_type}}"
-                                  data-related-tech="{{resource.related_technologies}}"
-                                  data-related-domain="{{resource.related_domains}}"
+                                  data-related-techs="{{resource.related_technologies}}"
+                                  data-related-domains="{{resource.related_domains}}"
                                   {% if resource.media_type != 0 %}
                                     href="{{resource.link}}"
                                     target="_blank"

@@ -15,8 +15,8 @@ $(document).ready(function() {
     $(".changeDesc").click(function(){
 
         var desc = $(this).data("desc");
-        var relatedDomains = $(this).data("related-domain");
-        var relatedTechnologies = $(this).data("related-technologies");
+        var relatedDomains = $(this).data("related-domains");
+        var relatedTechnologies = $(this).data("related-techs");
         var centralActivity = $(this).data("centralActivity");
         var yt_link = $(this).data("yt-link");
         var term = $(this).text()
@@ -36,7 +36,6 @@ $(document).ready(function() {
         $("#descBox").text(desc);
         
         console.log("type of related domains", typeof(relatedDomains));
-        console.log("desc", desc);
         console.log("related domains ", relatedDomains);
         console.log("related technologies", relatedTechnologies);
     }); //changing the desc
