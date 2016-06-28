@@ -142,7 +142,7 @@ def get_resources_grouped_by_tech(domain):
             
             return_data[tech_name] = curr_tech_data
     
-    return_data['related_technologies'], return_data['related_domains'] = get_aggr_related_data(all_resources)
+    # return_data['related_technologies'], return_data['related_domains'] = get_aggr_related_data(all_resources)
     return return_data
 
 def get_resources_grouped_by_domain(tech):
@@ -171,7 +171,7 @@ def get_resources_grouped_by_domain(tech):
 
             return_data[domain_name] = curr_domain_data
         
-    return_data['related_technologies'], return_data['related_domains'] = get_related_data(all_resources)
+    # return_data['related_technologies'], return_data['related_domains'] = get_aggr_related_data(all_resources)
     return return_data
 
 def get_info_by_slug(slug):

@@ -1,19 +1,10 @@
 $(document).ready(function() {
 
-    function getId(url) {
-        var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-        var match = url.match(regExp);
-
-        if (match && match[2].length == 11) {
-            return match[2];
-        } else {
-            return 'error';
-        }
-    }
 
    //function is used to change the desc based on what ever is clicked
     $(".changeDesc").click(function(){
 
+        var resourceName = $(this).data("resource-name");
         var desc = $(this).data("desc");
         var relatedDomains = $(this).data("related-domains");
         var relatedTechnologies = $(this).data("related-techs");
@@ -25,19 +16,25 @@ $(document).ready(function() {
             //change youtube url 
             //display youtube widget
             console.log("changing the youtube link");
-            var yt_converted_link = getId(yt_link);
-            console.log(yt_converted_link)
-            var youtube_embed_code = '<iframe width="560" height="315" src="//www.youtube.com/embed/' + yt_converted_link + '" frameborder="0" allowfullscreen></iframe>';
+
+            var yt_converted_link = yt_link.replace(/(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, '<iframe width="560" height="345" src="//www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe>');
+
+            //hack
+            var youtube_embed_code = yt_converted_link.replace('https://', '');
+
+            console.log(youtube_embed_code);
 
             $("#yt-embedded-player").html(youtube_embed_code);
+            $("#videoTitle").text(resourceName);
         }
 
         $("#descHeader").text(term);
         $("#descBox").text(desc);
         
-        console.log("type of related domains", typeof(relatedDomains));
-        console.log("related domains ", relatedDomains);
-        console.log("related technologies", relatedTechnologies);
+        // console.log("type of related domains", typeof(relatedDomains));
+        // console.log("related domains ", relatedDomains);
+
+        // console.log("related technologies", relatedTechnologies);
     }); //changing the desc
 
 
@@ -73,7 +70,7 @@ $(document).ready(function() {
                 data = $.parseJSON(data);
                 
                 if (data){
-                    console.log('---------');
+                    // console.log('---------');
                     console.log(typeof(data['summary_data']['summary_present']));
                     console.log((data['summary_data']['summary_present']));
                     if (data['summary_data']['summary_present'] === true){
