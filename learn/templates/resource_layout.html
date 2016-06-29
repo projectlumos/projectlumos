@@ -113,12 +113,20 @@
                       <div class="panel-body sb">
                         <a 
                         class="changeDesc secondTransitionElement resourceDesc"
+                        
+                        data-resource-name="{{resource.name}}"
                         data-desc="{{ resource.desc }}"
                         data-resource-diff-level="{{resource.diff_level}}"
-                        data-resource-name="{{resource.name}}"
                         data-resource-type="{{resource.media_type}}"
+                        
                         data-related-techs="{{resource.related_technologies}}"
                         data-related-domains="{{resource.related_domains}}"
+
+                        data-quality-helpfulness="{{resource.quality_helpful}}"
+                        data-quality-simplicity="{{resource.quality_clarity}}"
+                        data-quality-placement="{{resource.quality_placement}}"
+                        data-quality-recommendation="{{resource.quality_recco}}"
+                        
                         {% if resource.is_youtube %}
                           href = "#"
                           data-yt-link="{{resource.link}}"
@@ -186,44 +194,53 @@
     
             </div>
 
-            <!--The hidden toggle section-->
-            <div id="toggle">
-                <!--progress bars-->
-                <label>Attribute 1</label>
+          <div id="qualityWell" class="well">
+            <!--The hidden qualityRatings section-->
+
+            <div id="qualityRatings">
+
+                <h5 data-toggle="tooltip" data-placement="left" title="" data-original-title="Tooltip on left">Helpfulness</h5>
+                <div id="qualityHelpfulness" class="progress progress-striped">
+                    <div class="progress-bar progress-bar-success"
+                    role="progressbar" 
+                    aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 25%">25%
+                    </div>
+                </div>
+
+
+                <h5>Simplicity</h5>
                 <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
-                    style="width: 25%">25%
+                    <div id="qualitySimplicity" class="progress-bar progress-bar-success"
+                    role="progressbar" 
+                    aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 25%">25%
+                    </div>
+                </div>
+
+
+                <h5>Resource Placement</h5>
+                <div class="progress progress-striped">
+                    <div id="qualityPlacement" class="progress-bar progress-bar-success"
+                    role="progressbar"
+                    aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 25%">25%
+                    </div>
+                </div>
+
+
+                <h5>Recommendation</h5>
+                <div class="progress progress-striped">
+                    <div id="qualityRecommendation" class="progress-bar progress-bar-success"
+                    role="progressbar" 
+                    aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 25%">25%
+                    </div>
                 </div>
             </div>
 
-            <label>Attribute 2</label>
-            <div class="progress progress-striped">
-                <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
-                style="width: 50%">50%
-            </div>
-        </div>
-
-        <label>Attribute 3</label>
-        <div class="progress progress-striped">
-            <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
-            style="width: 70%">70%
-        </div>
-      </div>
-
-      <label>Attribute 4</label>
-      <div class="progress progress-striped">
-        <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
-        style="width: 100%">100%
-      </div>
+          <!-- resource rating and feedback  buttons --> 
+            <button class="btn btn-raised btn-primary rating " id="qualityRatingsTrigger" style="margin-left:5%" >RATINGS</button>
+            <a href="javascript:void(0)" class="btn btn-raised  btn-primary feedbk" data-controls-modal="#resfeed" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#resfeed" style="float: right; margin-right:5%">FEEDBACK</a>
+          </div>
     </div>
   </div>
-  <!-- resource rating and feedback  buttons --> 
-  <div>
-    <a href="javascript:void(0)" class="btn btn-raised btn-primary rating " id="onToggle" style=" margin-left:5%" >RATINGS</a>
-    <a href="javascript:void(0)" class="btn btn-raised  btn-primary feedbk" data-controls-modal="#resfeed" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#resfeed" style="float: right; margin-right:5%">FEEDBACK</a>
-  </div>
-</div>
-</div>
       <!-- end of middle -->
 
       <!-- right section -->

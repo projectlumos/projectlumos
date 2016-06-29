@@ -15,6 +15,9 @@
   display: none;
 }
 
+#qualityWell{
+  display: none;
+}
 /*Resource Feedback Sliders Input[range]*/
 .range {
   margin: 0.5%;
@@ -399,7 +402,7 @@ margin-bottom: 30px;
 }
 
 /*CSS for content below Youtube video*/
-#toggle{
+#qualityRatings{
   display: none;
   margin: 1%;
   padding: 1%;

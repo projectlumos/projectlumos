@@ -3,14 +3,17 @@ $(document).ready(function() {
     $(".firstTransitionElement").click(function(){
       $("#firstTransition").hide();
       $("#secondTransition").show();
-      $("#youtubeTransition").hide();
       $("#noYoutube").hide();
+      $("#youtubeTransition").hide();
+      $("#qualityWell").hide();
     });
+
+    
 
     $(".secondTransitionElement").click(function(){
       
       $("#secondTransition").hide();
-      
+      $("#qualityWell").show();
       var is_youtube = $(this).data("yt-link");
 
       if (is_youtube){
@@ -22,6 +25,13 @@ $(document).ready(function() {
         $("#noYoutube").show();
       }
     });
+
+   
+    //quality rating div toggle
+    $("#qualityRatingsTrigger").click(function() {
+      $("#qualityRatings").slideToggle("slow");
+    });
+
 
    //function is used to change the desc based on what ever is clicked
     $(".changeDesc").click(function(){
