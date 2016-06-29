@@ -1,5 +1,27 @@
 $(document).ready(function() {
 
+    $(".firstTransitionElement").click(function(){
+      $("#firstTransition").hide();
+      $("#secondTransition").show();
+      $("#youtubeTransition").hide();
+      $("#noYoutube").hide();
+    });
+
+    $(".secondTransitionElement").click(function(){
+      
+      $("#secondTransition").hide();
+      
+      var is_youtube = $(this).data("yt-link");
+
+      if (is_youtube){
+        $("#youtubeTransition").show();
+        $("#noYoutube").hide();
+      }
+      else{
+        $("#youtubeTransition").hide();
+        $("#noYoutube").show();
+      }
+    });
 
    //function is used to change the desc based on what ever is clicked
     $(".changeDesc").click(function(){

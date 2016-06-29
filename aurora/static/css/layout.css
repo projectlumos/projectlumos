@@ -1,3 +1,11 @@
+/* New Divs for transitions */
+.intro-well{
+  margin-top: 10% !important;
+  height: 60%;
+  padding: 15% !important;
+  display: none;
+}
+
 /*Resource Feedback Sliders Input[range]*/
 .range {
   margin: 0.5%;
@@ -125,9 +133,6 @@ html{
   margin-bottom: 2%;
 }
 
-.progress{
-  height: 15px;
-}
 
 .container{
   margin-top: 3.9%;
@@ -250,8 +255,9 @@ a:focus, a:hover, a:active {
 }
 
 .panel-body {
-  background: #b9fdf5;
+  background: #eee; /* Change color for resources (try out #e5e5e5 if this color is not good) */
   text-align: center;
+  cursor: pointer; /* Making the cursor pointer */
 }
 
 .panel-body a {
@@ -406,7 +412,7 @@ margin-bottom: 30px;
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  background: white;   
+  background: white;
   animation: ripple-animation 2s;
 }
 
@@ -486,19 +492,13 @@ box-shadow: 7px 5px 15px 0px rgba(0,0,0,0.75);
 }
 
 .feedbk{
-  float: right !important;
-  margin-right: 5% !important;
+  float: right;
 }
 
 .rating{
   float: left;
 }
-.modal_body{
-  overflow-y: scroll;
-}
-.span{
-  overflow-y: scroll;
-}
+
 
 .resourceDesc{
   background: #C2CFD8;

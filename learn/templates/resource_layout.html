@@ -15,6 +15,11 @@
 
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+
+  <!-- animate.css cdn -->
+  <link rel="stylesheet" href="http://s.mlcdn.co/animate.css">
+
+
   <!-- material design -->
   <link rel="stylesheet" href="http://cdn.jsdelivr.net/bootstrap.material-design/0.5.10/css/bootstrap-material-design.css">
   <script src="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.10/js/material.min.js"></script>
@@ -85,7 +90,7 @@
                             <div class="panel-heading sb" role="tab" id="heading_{{ forloop.counter }}">
                                 <h4 class="panel-title sb">
                                     <a 
-                      class="changeDesc"
+                      class="changeDesc firstTransitionElement"
                       role="button" 
                       data-toggle="collapse"
                       data-parent="#accordion"
@@ -107,7 +112,7 @@
                     {% for resource in resource_data.resources %}
                       <div class="panel-body sb">
                         <a 
-                        class="changeDesc resourceDesc"
+                        class="changeDesc secondTransitionElement resourceDesc"
                         data-desc="{{ resource.desc }}"
                         data-resource-diff-level="{{resource.diff_level}}"
                         data-resource-name="{{resource.name}}"
@@ -143,13 +148,43 @@
       <!-- middle section -->
       <div class="col-md-6">
         <div class="div-height" id="middle">
-
-            <!-- youtube embedded -->
-            <div class="videoWrapper">
-                <center id="yt-embedded-player"></center>
+          <!-- 3 transition divs (css- display: none) --> 
+            <div id="firstTransition" class="well transitionWell">
+              <center>
+                <div class="animated bounceInDown"> 
+                  <h3>Please select a {%if mode == 'technology'%}Domain{% else %}Technology{%endif%}</h3>
+                </div>
+              </center>
             </div>
 
-            <h3 id="videoTitle"></h3>
+            <!-- well after technology is selected  --> 
+            <div id="secondTransition" class="well hiddentTransitionWell transitionWell">
+              <center>
+                <div class="animated fadeIn"> 
+                  <h3>Please select a resource</h3>
+                </div>
+              </center>
+            </div>
+
+            <!-- well after resource is selected --> 
+            <div id="noYoutube" class="well  hiddentTransitionWell transitionWell">
+              <center>
+                <div class="animated slideInDown"> 
+                  <h3>We couldn't find a video for this top, why don't you checkout the content opened in the new tab?</h3>
+                </div>
+              </center>
+            </div>
+    
+            <!-- youtube embedded -->
+            <div id="youtubeTransition" style="display:none;" class="well hiddenTransitionWell">
+              
+                <div class="videoWrapper">
+                    <center id="yt-embedded-player"></center>
+                </div>
+
+                <h3 id="videoTitle"></h3>
+    
+            </div>
 
             <!--The hidden toggle section-->
             <div id="toggle">
