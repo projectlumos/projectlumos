@@ -40,7 +40,6 @@ def get_tech_and_slugs():
     return return_data
 
 def extract_related_info(raw_data):
-    print raw_data
     return_data = []
     for key, value in raw_data.items():
         curr_data = {}
@@ -142,7 +141,6 @@ def get_resources_grouped_by_tech(domain):
                 curr_tech_data['resources'] = [resource_to_data(resource)]
                 curr_tech_data['desc'] = technology.desc
             else:
-                print 'adding to an existing tech'
                 curr_tech_data['resources'].append(resource_to_data(resource))
             
             return_data[tech_name] = curr_tech_data

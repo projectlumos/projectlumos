@@ -20,7 +20,6 @@ def hello(request):
     return render(request, 'hello.html', {'data': return_data})
 
 def get_domain_resources_view(request, domain_slug):
-    print domain_slug
     return_data = {}
     try:
         slug_data = Domain.objects.get(slug=domain_slug)
@@ -30,13 +29,11 @@ def get_domain_resources_view(request, domain_slug):
         return_data['mode'] = 'domain'
         pprint(return_data)
     except Exception, e:
-        print e
         return HttpResponse(json.dumps("500 error"))
     pprint(return_data)
     return render(request, 'resource_layout.html', {'return_data': return_data})
 
 def get_tech_resources_view(request, tech_slug):
-    print tech_slug
     return_data = {}
     try:
         slug_data = Technology.objects.get(slug=tech_slug)
@@ -46,7 +43,6 @@ def get_tech_resources_view(request, tech_slug):
         return_data['mode'] = 'tech'
         pprint(return_data)
     except Exception, e:
-        print e
         return HttpResponse(json.dumps("500 error"))
     pprint(return_data)
     return render(request, 'resource_layout.html', {'return_data': return_data})
@@ -66,10 +62,6 @@ def download_all_domain_data_view(request):
 def download_all_tech_data_view(request):
     pass
 
-def get_wiki_view(request):
-    print request
-
-
 @csrf_exempt
 def get_wiki_view(request):
     wiki_data = False
@@ -78,5 +70,4 @@ def get_wiki_view(request):
         data = json.loads(json_string)
         search_term =  str(data['search-term'])
         wiki_data = get_wiki_modal_data(term=search_term)
-        print wiki_data
     return HttpResponse(json.dumps(wiki_data))
