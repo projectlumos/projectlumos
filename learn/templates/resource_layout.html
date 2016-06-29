@@ -122,10 +122,10 @@
                         data-related-techs="{{resource.related_technologies}}"
                         data-related-domains="{{resource.related_domains}}"
 
-                        data-quality-helpfulness="{{resource.quality_helpful}}"
-                        data-quality-simplicity="{{resource.quality_clarity}}"
+                        data-quality-helpfulness="{{resource.quality_helpfulness}}"
+                        data-quality-simplicity="{{resource.quality_simplicity}}"
                         data-quality-placement="{{resource.quality_placement}}"
-                        data-quality-recommendation="{{resource.quality_recco}}"
+                        data-quality-recommendation="{{resource.quality_recommendation}}"
                         
                         {% if resource.is_youtube %}
                           href = "#"
@@ -200,8 +200,8 @@
             <div id="qualityRatings">
 
                 <h5 data-toggle="tooltip" data-placement="left" title="" data-original-title="Tooltip on left">Helpfulness</h5>
-                <div id="qualityHelpfulness" class="progress progress-striped">
-                    <div class="progress-bar progress-bar-success"
+                <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-success" id="qualityHelpfulness"
                     role="progressbar" 
                     aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 25%">25%
                     </div>

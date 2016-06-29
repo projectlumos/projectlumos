@@ -12,8 +12,8 @@ $(document).ready(function() {
 
     $(".secondTransitionElement").click(function(){
       
-      $("#secondTransition").hide();
-      $("#qualityWell").show();
+      $("#secondTransition").hide();      
+      //checkout for youtube module display
       var is_youtube = $(this).data("yt-link");
 
       if (is_youtube){
@@ -24,12 +24,19 @@ $(document).ready(function() {
         $("#youtubeTransition").hide();
         $("#noYoutube").show();
       }
+
+      
+      //show the quality well
+      $("#qualityWell").show();
+
     });
 
    
     //quality rating div toggle
     $("#qualityRatingsTrigger").click(function() {
       $("#qualityRatings").slideToggle("slow");
+      $(window).scrollTop($('#qualityRatingsTrigger').offset().top-20)
+
     });
 
 
@@ -43,7 +50,7 @@ $(document).ready(function() {
         var centralActivity = $(this).data("centralActivity");
         var yt_link = $(this).data("yt-link");
         var term = $(this).text()
-        
+
         if (yt_link){
             
             //change youtube url 
@@ -68,6 +75,32 @@ $(document).ready(function() {
         // console.log("related domains ", relatedDomains);
 
         // console.log("related technologies", relatedTechnologies);
+        // 
+        // 
+
+
+        //change quality ratings
+        
+        var quality_helpfulness = $(this).data("quality-helpfulness");
+        var quality_simplicity = $(this).data("quality-simplicity");
+        var quality_recommendation = $(this).data("quality-recommendation");
+        var quality_placement = $(this).data("quality-placement");
+
+        $("#qualityRatings").hide();
+
+
+        $("#qualityHelpfulness").attr("aria-valuenow", quality_helpfulness);
+        $("#qualityHelpfulness").attr("style", "width: "+quality_helpfulness+"%");
+
+        $("#qualitySimplicity").attr("aria-valuenow", quality_simplicity);
+        $("#qualitySimplicity").attr("style", "width: "+quality_simplicity+"%");
+
+        $("#qualityRecommendation").attr("aria-valuenow", quality_recommendation);
+        $("#qualityRecommendation").attr("style", "width: "+quality_recommendation+"%");
+
+        $("#qualityPlacement").attr("aria-valuenow", quality_placement);
+        $("#qualityPlacement").attr("style", "width: "+quality_placement+"%");
+
     }); //changing the desc
 
 
