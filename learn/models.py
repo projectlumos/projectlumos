@@ -79,6 +79,11 @@ class Resources(RowInfo):
     media_type = models.IntegerField(choices=data_type, default=3)
     is_youtube = models.BooleanField(default=False)
     slug = models.SlugField()
+    # quality parameters
+    quality_helpfulness = models.IntegerField(default=0)
+    quality_simplicity = models.IntegerField(default=0)
+    quality_recommendation = models.IntegerField(default=0)
+    quality_placement = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

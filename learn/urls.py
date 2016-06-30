@@ -17,5 +17,5 @@ urlpatterns = [
    url(r'download_all_domain_data/(?P<domain_slug>.+)$', views.download_all_domain_data_view),
    url(r'download_all_tech_data/(?P<tech_slug>.+)$', views.download_all_tech_data_view),
    # extract info from wiki
-   url(r'get_wiki/(?P<term>.+)$', views.get_wiki_view),
+   url(r'search-wiki/$', views.get_wiki_view),
    ]

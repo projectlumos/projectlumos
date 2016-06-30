@@ -1,4 +1,5 @@
 from learn.models import Technology, Domain, Resources
+from collections import Counter
 
 def get_all_domains():
     """
@@ -38,6 +39,63 @@ def get_tech_and_slugs():
             return_data[technology.name] = technology.slug
     return return_data
 
+def extract_related_info(raw_data):
+    return_data = []
+    for key, value in raw_data.items():
+        curr_data = {}
+        curr_data['name'] = key.name
+        curr_data['slug'] = key.slug
+        curr_data['freq'] = value
+        return_data.append(curr_data)
+    # return_data = sorted(return_data, key=lamba x: int(x['freq']), reverse=True)[:9]
+    return return_data
+
+def get_aggr_related_data(resources):
+    """
+    takes in a array of resources 
+    and returns a dict of related tech name and domains sorted on the basis of freq
+    o/p: {
+        tech: [{tech_object: 12}, {tech_object: 10}],
+        domain: [{domain_object: 12}, {domain_object: 10}]
+    } 
+    This function is for the tech and domain
+    """
+    related_data = {}
+    all_techs = []
+    all_domains = []
+    for resource in resources:
+        curr_techs = resource.technology.all()
+        all_techs.extend(curr_techs)
+        curr_domains = resource.domain.all()
+        all_domains.extend(curr_domains)
+    all_techs = dict(Counter(all_techs))
+    all_domains = dict(Counter(all_domains))
+
+    all_techs = extract_related_info(all_techs)
+    all_domains = extract_related_info(all_domains)
+    return all_techs, all_domains
+
+
+def get_related_data(resource):
+    """
+    identical to the above function but used for resource level
+    """
+
+    related_data = {}
+    all_techs = []
+    all_domains = []
+    curr_techs = resource.technology.all()
+    all_techs.extend(curr_techs)
+    curr_domains = resource.domain.all()
+    all_domains.extend(curr_domains)
+    all_techs = dict(Counter(all_techs))
+    all_domains = dict(Counter(all_domains))
+
+    all_techs = extract_related_info(all_techs)
+    all_domains = extract_related_info(all_domains)
+    
+    return all_techs, all_domains
+
 def resource_to_data(resource):
     """
     Converts a resource queryset into essential fields only
@@ -50,13 +108,21 @@ def resource_to_data(resource):
     return_resource['diff_sort'] = resource.diff_sort
     return_resource['media_type'] = resource.media_type
     return_resource['slug'] = resource.slug
+    return_resource['is_youtube'] = resource.is_youtube
+    return_resource['quality_simplicity'] = resource.quality_simplicity
+    return_resource['quality_helpfulness'] = resource.quality_helpfulness
+    return_resource['quality_recommendation'] = resource.quality_recommendation
+    return_resource['quality_placement'] = resource.quality_placement
+    
+    return_resource['related_technologies'], return_resource['related_domains'] = get_related_data(resource)
+
     return return_resource
 
 def get_resources_grouped_by_tech(domain):
     """
     Given a domain slug, this function will return
     all the resources for that domain group by technologies
-    i/p: 'python-web-dev'
+    i/p: 'android-dev'
     o/p: 
     """
     return_data = {}
@@ -66,23 +132,27 @@ def get_resources_grouped_by_tech(domain):
 
         for technology in technologies_in_resource:
             tech_name = technology.name
-            curr_tech_resources = return_data.get(tech_name, None)
+            curr_tech_data = return_data.get(tech_name, None)
 
-            if not curr_tech_resources:
-                curr_tech_resources = [resource_to_data(resource)]
+            if not curr_tech_data:
+                curr_tech_data = {}
+                # curr_tech_data['related_domains'] = domains_for_tech(tech_name)
+                # figure out the related domains using smart querying
+                curr_tech_data['resources'] = [resource_to_data(resource)]
+                curr_tech_data['desc'] = technology.desc
             else:
-                print 'adding to an existing tech'
-                curr_tech_resources.append(resource_to_data(resource))
-
-            return_data[tech_name] = curr_tech_resources    
+                curr_tech_data['resources'].append(resource_to_data(resource))
+            
+            return_data[tech_name] = curr_tech_data
+    
+    # return_data['related_technologies'], return_data['related_domains'] = get_aggr_related_data(all_resources)
     return return_data
 
 def get_resources_grouped_by_domain(tech):
     """
     Given a tech slug, this function will return
     all the resources for that tech grouped by domains
-    i/p: 'python-web-dev'
-    o/p: 
+    i/p: 'python'
     """
     return_data = {}
     all_resources = Resources.objects.filter(technology__slug=tech)
@@ -91,14 +161,20 @@ def get_resources_grouped_by_domain(tech):
 
         for domain in domains_in_resource:
             domain_name = domain.name
-            curr_domain_resources = return_data.get(domain_name, None)
-            if not curr_domain_resources:
-                curr_domain_resources = [resource_to_data(resource)]
-            else:
-                print 'adding to an existing domain'
-                curr_domain_resources.append(resource_to_data(resource))
+            curr_domain_data = return_data.get(domain_name, None)
 
-            return_data[domain_name] = curr_domain_resources    
+            if not curr_domain_data:
+                curr_domain_data = {}
+                # curr_domain_data['related_technologies'] = techs_for_domain(domain_name)
+                # figure out the related techs using smart querying
+                curr_domain_data['resources'] = [resource_to_data(resource)]
+                curr_domain_data['desc'] = domain.desc
+            else:
+                curr_domain_data['resources'].append(resource_to_data(resource))
+
+            return_data[domain_name] = curr_domain_data
+        
+    # return_data['related_technologies'], return_data['related_domains'] = get_aggr_related_data(all_resources)
     return return_data
 
 def get_info_by_slug(slug):
