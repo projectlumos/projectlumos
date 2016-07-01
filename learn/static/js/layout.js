@@ -13,6 +13,20 @@ $(document).ready(function() {
     $(".secondTransitionElement").click(function() {
 
         $("#secondTransition").hide();
+
+        //setting up the qualityFeedback
+        var resourceID = $(this).data("resource-id");
+        console.log("Resource id is as follows: ");
+        console.log(resourceID);
+        $("#submitQualityFeedback").data("resourceID", resourceID);
+
+
+        $("#recommendationFeedback").val(0);
+        $("#simplicityFeedback").val(0);
+        $("#recommendationFeedback").val(0);
+        $("#placementFeedback").val(0);
+
+
         //checkout for youtube module display
         var is_youtube = $(this).data("yt-link");
 
@@ -176,6 +190,41 @@ $(document).ready(function() {
         }
     }); //wiki search button
 
+
+
+$("#submitQualityFeedback").click(function(){
+
+  var resourceID = $(this).data("resourceID");
+  var helpfulnessFeedback = parseFloat($("#helpfulnessFeedback").val().trim());
+  var simplicityFeedback = parseFloat($("#simplicityFeedback").val().trim());
+  var recommendationFeedback = parseFloat($("#recommendationFeedback").val().trim());
+  var placementFeedback = parseFloat($("#placementFeedback").val().trim());
+
+  data = {
+    'resource_id': resourceID
+    ,'helpfulness': helpfulnessFeedback
+    ,'simplicity': simplicityFeedback
+    ,'recommendation': recommendationFeedback
+    ,'placement': placementFeedback
+  }
+  console.log("=========================");
+  console.log("------------------------");
+  console.log("resource quality data");
+  console.log(JSON.stringify(data));
+  console.log("==========================");
+
+        $.ajax({
+            type: 'POST',
+            url: '/quality-feedback/',
+            data: JSON.stringify(data),
+            success: function(data) {
+              console.log(data);
+            },
+            error: function(data) {
+            }
+        }); //ajax call
+  console.log('sending the quality feedback');
+});
 
 }); //document ready
 

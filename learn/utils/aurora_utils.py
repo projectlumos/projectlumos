@@ -101,6 +101,7 @@ def resource_to_data(resource):
     Converts a resource queryset into essential fields only
     """
     return_resource = {}
+    return_resource['id'] = resource.id
     return_resource['name'] = resource.name
     return_resource['link'] = resource.link
     return_resource['desc'] = resource.desc

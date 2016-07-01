@@ -97,6 +97,26 @@ class Resources(RowInfo):
     class Meta:
         db_table = 'resources'
         verbose_name_plural='resources'
+
+
+class QualityFeedback(RowInfo):
+    """
+    Stores the different domains across several technologies
+    """
+    resource = models.ForeignKey(Resources)
+    helpfulness = models.FloatField(default=0)
+    simplicity = models.FloatField(default=0)
+    placement = models.FloatField(default=0)
+    recommendation = models.FloatField(default=0)
+    aggr_calculation = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.resource.name
+    
+    class Meta:
+        db_table = 'quality_feedback'
+
+
 # TO DO
 # career to domain linking
 # indexing based on explain plan
