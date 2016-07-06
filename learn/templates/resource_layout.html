@@ -118,7 +118,8 @@
                         data-desc="{{ resource.desc }}"
                         data-resource-diff-level="{{resource.diff_level}}"
                         data-resource-type="{{resource.media_type}}"
-                        
+                        data-resource-id = "{{resource.id}}"
+
                         data-related-techs="{{resource.related_technologies}}"
                         data-related-domains="{{resource.related_domains}}"
 
@@ -199,7 +200,7 @@
 
             <div id="qualityRatings">
 
-                <h5 data-toggle="tooltip" data-placement="left" title="" data-original-title="Tooltip on left">Helpfulness</h5>
+                <h5>Helpfulness</h5>
                 <div class="progress progress-striped">
                     <div class="progress-bar progress-bar-success" id="qualityHelpfulness"
                     role="progressbar" 
@@ -396,24 +397,27 @@
                         <br>
                     </div>  
                     <div class="form-group even_spacing">
-                        <h5 data-toggle='tooltip' data-placement="right" title="Attribute 1 " data-original-tite="Attribute 1"><b>Attribute 1 :</b></h5>
+                        <h5 data-toggle='tooltip' data-placement="right" title="Helpfulness" data-original-tite="Helpfulness"><b>Helpfulness:</b></h5>
                         <div class="range">
-                            <input type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput1(this.value);">
+                            <input id="helpfulnessFeedback" type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput1(this.value);">
                             <center><b><div class="resourcefeedsliderinput" id="textInput1">Not Rated</div></b></center>
                         </div>
-                        <h5 data-toggle='tooltip' data-placement="right" title="Attribute 2" data-original-tite="Attribute 2"><b>Attribute 2 :</b></h5>
+
+                        <h5 data-toggle='tooltip' data-placement="right" title="Simplicity" data-original-tite="Simplicity"><b>Simplicity</b></h5>
                         <div class="range">
-                            <input type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput2(this.value);">
+                            <input id="simplicityFeedback" type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput2(this.value);">
                             <center><b><div class="resourcefeedsliderinput" id="textInput2">Not Rated</div></b></center>
                         </div>
-                        <h5 data-toggle='tooltip' data-placement="right" title="Attribute 3 " data-original-tite="Attribute 3"><b>Attribute 3 :</b></h5>
+
+                        <h5 data-toggle='tooltip' data-placement="right" title="Placement" data-original-tite="Placement"><b>Placement:</b></h5>
                         <div class="range">
-                            <input type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput3(this.value);">
+                            <input id="placementFeedback" type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput3(this.value);">
                             <center><b><div class="resourcefeedsliderinput" id="textInput3">Not Rated</div></b></center>
                         </div>
-                        <h5 data-toggle='tooltip' data-placement="right" title="Attribute 4" data-original-tite="Attribute 4"><b>Attribute 4 :</b></h5>
+
+                        <h5 data-toggle='tooltip' data-placement="right" title="Recommendation" data-original-tite="Recommendation"><b>Recommendation:</b></h5>
                         <div class="range">
-                            <input type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput4(this.value);">
+                            <input id="recommendationFeedback" type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput4(this.value);">
                             <center><b><div class='resourcefeedsliderinput' id="textInput4">Not Rated</div></b></center>
                         </div>
                     </div>                 
@@ -421,8 +425,8 @@
 
                 <!--resfeed footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" style="margin-bottom:3%">Send</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-bottom:3%; margin-right:2%;">Close</button>
+                    <button id="submitQualityFeedback" type="button" class="btn btn-primary" style="margin-bottom:3%">Send</button>
+                    <button id="resetQualityFeedback"type="button" class="btn btn-default" data-dismiss="modal" style="margin-bottom:3%; margin-right:2%;">Close</button>
                 </div>
 
             </div><!-- modal-content -->

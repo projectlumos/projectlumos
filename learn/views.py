@@ -8,7 +8,7 @@ import json
 from pprint import pprint
 
 #aurora imports
-from learn.models import Domain, Technology
+from learn.models import Domain, Technology, Resources, QualityFeedback
 from learn.utils.aurora_utils import get_all_domains, get_all_technologies, get_resources_grouped_by_tech, get_resources_grouped_by_domain, get_domains_and_slugs, get_tech_and_slugs
 from learn.utils.wikipedia_utils import get_wiki_modal_data
 # Create your views here.
@@ -71,3 +71,28 @@ def get_wiki_view(request):
         search_term =  str(data['search-term'])
         wiki_data = get_wiki_modal_data(term=search_term)
     return HttpResponse(json.dumps(wiki_data))
+
+@csrf_exempt
+def resource_quality_ratings(request):
+    if request.method == 'POST' and request.is_ajax():
+        json_string = request.body.decode(encoding='UTF-8')
+        data = json.loads(json_string)
+        pprint(data)
+        resource_id =  str(data['resource_id'])
+        helpfulness =  str(data['helpfulness'])
+        simplicity =  str(data['simplicity'])
+        placement =  str(data['placement'])
+        recommendation =  str(data['recommendation'])
+        try:
+            resource = Resources.objects.get(id=resource_id)
+            new_resource_feedback = QualityFeedback()
+            new_resource_feedback.resource = resource
+            new_resource_feedback.helpfulness = helpfulness
+            new_resource_feedback.simplicity = simplicity
+            new_resource_feedback.placement = placement
+            new_resource_feedback.recommendation = recommendation
+            new_resource_feedback.save()
+
+        except Exception as e:
+            print e
+    return HttpResponse(True)
