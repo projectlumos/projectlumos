@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project Lumos - Aurora</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.10/css/bootstrap-material-design.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.10/css/ripples.min.css">
+	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css">
+	<link rel="stylesheet" href="http://s.mlcdn.co/animate.css"><!-- Animate.css -->
+	<link rel="stylesheet" type="text/css" href="homepage.css"><!-- Custom CSS -->
+</head>
+<body>
+	<!-- Nav Bar -->
+	<div id = "header">
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand animated flipInX" href="javascript:void(0)">Aurora</a>
+				</div>
+				<div class="navbar-collapse collapse navbar-responsive-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Domain&nbsp;&nbsp;</a></li>
+						<li><a href="#">Technology&nbsp;&nbsp;</a></li>
+						<li><a href="#">Mind Map&nbsp;&nbsp;</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--entire page excluding header-->
+	<div class="background" id="fullpage">
+		<div class="page-height">
+			<div class="section container">
+				<div class="row" id="row1">
+					<div class="col-md-8" style="margin-top: 45px;">
+						<div class="thumbnail">
+							<div class="left_border_blue">
+								<h1><b>AURORA</b></h1>
+								<p class="text-uppercase"><b>Proin gravida nibhISI</b></p>                 
+							</div>    
+							<p class="short_desc"><span>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim egestas felis ut efficitur. Ut vestibulum est sapien, eu egestas augue viverra eget. Curabitur tempor, ligula at facilisis laoreet, tortor sapien feugiat sapien, id malesuada odio nisi eget nunc. 
+							</span></p>
+						<!-- <span>   - FOR typed.js 
+							<br>
+						</span> -->
+					</div>         
+				</div>
+
+				<div class="col-md-4" style="margin-top: 45px;">
+					<div class="thumbnail facts_box">
+						<div class = "left_border_blue"> 
+							<h2><span id="resource">0</span></h2> 
+							<p class = "facts_font">Resources Referred</p>
+						</div>                      
+						<div class = "left_border_blue"> 
+							<h2><span id="tech">0</span></h2> 
+							<p class = "facts_font">Technologies Traversed</p>
+						</div>
+						<div class = "left_border_blue"> 
+							<h2><span id="domain">0</span></h2> 
+							<p class = "facts_font">Domains Delved</p>
+						</div>
+						<!-- Remove the colored bar -->
+						<div >
+							<div id="resbar">
+							</div>
+							<div id="techbar">
+							</div>
+							<div id="domainbar">
+							</div>
+						</div>
+					</div>    
+				</div>
+			</div>
+			<div class="footer-scroll hidden-xs"> 
+				<center> 
+					<a href="javascript:void(0);" class="down-arrow" id="moveDown"> 
+						<span class="glyphicon glyphicon-backward animated infinite pulse"></span> 
+					</a> 
+				</center>
+			</div>
+		</div>
+		<div class="section container background">
+			<ul class="box">
+				<li>
+					<div class="circle" >
+						<div class="front front-popular">
+							<div class="title color-1-font glyphicon glyphicon-star"></div>
+							<div class="price color-1-font"><span class="total">DOMAINS</span></div><!-- Changes made -->
+							<div class="description">One Line Description</div><!-- Changes made -->
+						</div><!-- end div .front -->
+						<div class="popular color-1-font glyphicon glyphicon-star"></div>
+						<div class="back color-1-bg info">
+							<div class="title">Domains</div><!-- Changes made -->
+							<div class="description">
+								<p>One Line Description</p><!-- Changes made -->
+							</div><!-- end div .description -->
+							<a href="javascript:void(0)" class="btn btn-raised btn-success">Read More..</a>
+						</div><!-- end div .back color-1-bg info -->
+					</div><!-- end div .circle -->
+				</li>
+				<!-- END LIST ELEMENT -->
+				<!-- BEGIN LIST ELEMENT -->
+				<li>
+					<div class="circle">
+						<div class="front front-popular">
+							<div class="title color-2-font glyphicon glyphicon-user"></div>
+							<div class="price color-2-font"><span class="total">TECH</span></div>
+							<div class="description">One Line Description</div>
+						</div><!-- end div .front -->
+						<div class="popular color-2-font glyphicon glyphicon-user"></div>
+						<div class="back color-2-bg info">
+							<div class="title">Technology</div>
+							<div class="description">
+								<p>One Line Description</p>
+							</div><!-- end div .description -->
+							<a href="javascript:void(0)" class="btn btn-raised btn-danger">Read More..</a>
+						</div><!-- end div .back color-1-bg info -->
+					</div><!-- end div .circle -->
+				</li>
+				<!-- END LIST ELEMENT -->
+				<!-- BEGIN LIST ELEMENT -->
+				<li>
+					<div class="circle">
+						<div class="front front-popular">
+							<div class="title color-4-font glyphicon glyphicon-time"></div>
+							<div class="price color-4-font"><span class="total">MIND MAP</span></div>
+							<div class="description">One Line Description</div>
+						</div><!-- end div .front -->
+						<div class="popular color-4-font glyphicon glyphicon-time"></div>
+						<div class="back color-4-bg info">
+							<div class="title">Mind Map</div>
+							<div class="description">
+								<p>One Line Description</p>
+							</div><!-- end div .description -->
+							<a href="javascript:void(0)" class="btn btn-raised btn-warning">Read More..</a>
+						</div><!-- end div .back color-4-bg info -->
+					</div><!-- end div .circle -->
+				</li>
+			</ul>
+			<div class="footer-padding">
+				<div class="footer">
+					<center class="footer_spacing">
+						<a href="#">About Us</a>
+						<a href="#">Contact Us</a>
+						<a href="#" data-controls-modal="#wikki" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#privacy-policy">Privacy Policy</a>
+					</center>
+				</div>
+			</div>
+			<!-- Footer Scroll Button Added Here -->
+		</div>
+		<!-- footer -->
+		<div class="section fp-auto-height">
+			
+		</div>
+	</div>
+</div>
+<!--  privacy modal -->
+<div class="modal fade" id="privacy-policy">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- header -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h3 class="modal-title">Privacy Policy</h3>
+			</div>
+
+			<!-- body (form) -->
+			<div class="modal-body">  
+				<div>
+					New York City serves as the backdrop for the dramatic hacker action of Mr. Robot, the city’s many layers reflecting (and in many ways embodying) the complexity of Elliot’s journey into the unknown.New York City serves as the backdrop for the dramatic hacker action of Mr. Robot, the city’s many layers reflecting (and in many ways embodying) the complexity of Elliot’s journey into the unknown.New York City serves as the backdrop for the dramatic hacker action of Mr. Robot, the city’s many layers reflecting (and in many ways embodying) the complexity of Elliot’s journey into the unknown.
+				</div>
+			</div>
+
+			<!-- footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+			</div>
+
+		</div><!-- modal-content -->
+	</div><!-- modal-dialog -->
+</div><!-- end of privacy-modal modal -->
+
+<!-- Javascript Imports -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Material Bootstrap Links -->
+<script src="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.10/js/material.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.10/js/ripples.min.js"></script>
+<script type="text/javascript" src="homepage.js"></script><!-- Custom js -->
+</body>
+</html>

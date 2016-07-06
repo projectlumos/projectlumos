@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.10/css/bootstrap-material-design.css">
+	<link rel="stylesheet" href="http://s.mlcdn.co/animate.css"><!-- Animate.css file included -->
+	<script src="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.10/js/material.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/bootstrap.material-design/0.5.10/js/ripples.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="resource_layout.css"><!-- custom css -->
+	<script type="text/javascript" src="resource_layout.js"></script><!-- custom js -->	
+</head>
+<body>
+
+	<!-- navbar -->
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed ripple right-btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse2" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>
+				</button>
+				<span class="left-btn" href="javascript:void(0)">
+				<!-- Changed naming of data-target in the button below  -->
+					<button type="button" class="navbar-toggle collapsed ripple" data-toggle="collapse" data-target=".accordion-collapse" aria-expanded="false">
+						<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+					</button>
+				</span>
+				<a class="navbar-brand" href="javascript:void(0)">Aurora</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse2">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Domain&nbsp;&nbsp;</a></li>
+					<li><a href="#">Technology&nbsp;&nbsp;</a></li>
+					<li><a href="#">Mind Map&nbsp;&nbsp;</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav><!--navbar-->
+
+	<!-- layout of page starts -->
+
+	<div class="container">
+		<div class="row">
+
+			<!-- left section -->
+			<div class="col-md-3">
+			<!-- Changes made in class name in the div below -->
+				<div class="well div-height accordion-collapse" id="left">
+					<div class="container">
+						<h3 class="well"><center>Technology</center></h3>
+						<hr/>
+						<!--accordian sidebar-->
+						<!-- Removed the classes of the div below -->
+						<div>
+							<div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true">
+
+								<!--technology 1 -->
+								<div class="panel">
+									<div class="panel-heading" role="tab" id="headingOne">
+										<h4 class="panel-title">
+											<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+												Technology 1<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+											</a>
+										</h4>
+									</div>
+									<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+										<div class="panel-body easy">
+											<a href="#">Resource 1
+											<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+											</a>
+										</div>
+										<div class="panel-body intermediate ">
+											<a href="#">Resource 2
+											<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+											</a>
+										</div>
+										<div class="panel-body difficult">
+											<a href="#">Resource 3
+											<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+											</a>
+										</div>
+									</div>
+								</div>
+							
+								<!-- technology 2 -->
+								<div class="panel ">
+									<div class="panel-heading " role="tab" id="headingTwo">
+										<h4 class="panel-title ">
+											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Technology 2<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+											</a>
+										</h4>
+									</div>
+									<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+										<div class="panel-body easy">
+											<a href="#">Resource 1
+											<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+											</a>
+										</div>
+										<div class="panel-body intermediate ">
+											<a href="#">Resource 2
+											<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+											</a>
+										</div>
+										<div class="panel-body difficult">
+											<a href="#">Resource 3
+											<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<!-- technology 3 -->
+								<div class="panel ">
+									<div class="panel-heading " role="tab" id="headingThree">
+										<h4 class="panel-title ">
+											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Technology 3<span id="menu-toggle" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+											</a>
+										</h4>
+									</div>
+									<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+										<div class="panel-body easy">
+											<a href="#">Resource 1
+											<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+											</a>
+										</div>
+										<div class="panel-body intermediate ">
+											<a href="#">Resource 2
+											<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+											</a>
+										</div>
+										<div class="panel-body difficult">
+											<a href="#">Resource 3
+											<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<!-- technology 4 -->
+								<div class="panel ">
+									<div class="panel-heading " role="tab" id="headingFour">
+										<h4 class="panel-title ">
+											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Technology 4<span id="menu-toggle" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+											</a>
+										</h4>
+									</div>
+									<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+										<div class="panel-body easy">
+											<a href="#">Resource 1
+											<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+											</a>
+										</div>
+										<div class="panel-body intermediate ">
+											<a href="#">Resource 2
+											<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+											</a>
+										</div>
+										<div class="panel-body difficult">
+											<a href="#">Resource 3
+											<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<!-- technology 5 -->
+								<div class="panel ">
+									<div class="panel-heading " role="tab" id="headingFive">
+										<h4 class="panel-title ">
+											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Technology 5<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+											</a>
+										</h4>
+									</div>
+									<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+										<div class="panel-body easy">
+											<a href="#">Resource 1
+											<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+											</a>
+										</div>
+										<div class="panel-body intermediate ">
+											<a href="#">Resource 2
+											<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+											</a>
+										</div>
+										<div class="panel-body difficult">
+											<a href="#">Resource 3
+											<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<!-- technology 6 -->
+								<div class="panel ">
+									<div class="panel-heading " role="tab" id="headingSix">
+										<h4 class="panel-title ">
+											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+												Technology 6<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+											</a>
+										</h4>
+									</div>
+									<div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+										<div class="panel-body easy">
+											<a href="#">Resource 1
+											<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+											</a>
+										</div>
+										<div class="panel-body intermediate ">
+											<a href="#">Resource 2
+											<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+											</a>
+										</div>
+										<div class="panel-body difficult">
+											<a href="#">Resource 3
+											<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end of accordion sidebar-->
+					</div>
+				</div>
+			</div>
+			<!-- end of left section -->
+
+
+			<!-- middle section -->
+			<div class="col-md-6">
+				<div class="div-height" id="middle">
+					<!-- 3 transition divs (css- display: none) --> 
+					<div class="well intro-well">
+						<center>
+							<div class="animated bounceInDown"> 
+								<h3>Opening well </h3>
+							</div>
+						</center>
+					</div>	
+
+					<!-- well after technology is selected  --> 
+					<div class="well intro-well">
+						<center>
+							<div class="animated fadeIn"> 
+								<h3>well after technology is selected</h3>
+							</div>
+						</center>
+					</div>
+
+					<!-- well after resource is selected --> 
+					<div class="well intro-well">
+						<center>
+							<div class="animated slideInDown"> 
+								<h3>Opening well sfafihsaifsiafisafiasifiasibfba</h3>
+							</div>
+						</center>
+					</div>
+					<!-- youtube embedded -->
+					<div class="videoWrapper">
+						<center><iframe width="560" height="315" src="https://www.youtube.com/embed/5u8rFbpdvds?list=PLFE2CE09D83EE3E28" frameborder="0" allowfullscreen></iframe></center>
+					</div>
+
+					<h3>The Title of the video</h3>
+
+					<!--The hidden toggle section-->
+					<div id="toggle">
+						<!--progress bars-->
+						<!-- Tooltip addded -->
+						<label><a href="#" data-toggle="tooltip" title="Hooray!">Attribute 1</a></label>
+						<a href="#" data-toggle="tooltip" title="Hooray!">
+							<div class="progress progress-striped">
+								<div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+								style="width: 25%">
+							</div>
+						</div>
+					</a>
+
+					<label><a href="#" data-toggle="tooltip" title="Hooray!">Attribute 2</a></label>
+					<a href="#" data-toggle="tooltip" title="Hooray!">
+						<div class="progress progress-striped">
+							<div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+							style="width: 50%">
+						</div>
+					</div>
+				</a>
+
+				<label><a href="#" data-toggle="tooltip" title="Hooray!">Attribute 3</a></label>
+				<a href="#" data-toggle="tooltip" title="Hooray!">
+					<div class="progress progress-striped">
+						<div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+						style="width: 70%">
+					</div>
+				</div>
+			</a>
+
+			<label><a href="#" data-toggle="tooltip" title="Hooray!">Attribute 4</a></label>
+			<a href="#" data-toggle="tooltip" title="Hooray!">
+				<div class="progress progress-striped">
+					<div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+					style="width: 100%">
+				</div>
+			</div>
+		</div>
+	</a>
+	<!-- resource rating and feedback  buttons -->
+	<div>
+		<a href="javascript:void(0)" class="btn btn-raised btn-primary rating " id="onToggle">RATINGS</a>
+		<a href="javascript:void(0)" class="btn btn-raised  btn-primary feedbk" data-controls-modal="#resfeed" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#resfeed" style="float: right;">FEEDBACK</a>
+	</div>
+</div>
+</div>
+<!-- end of middle -->
+
+<!-- right section -->
+<div class="col-md-3">
+	<div class="div-height" id="right">
+
+		<!--search bar -->
+		<div class="container" id="search">
+			<div class="rightpanelinfo">
+				<div class="rightpanelheading">
+					<h3 class="panel-title">Search</h3>
+				</div>
+				<div class="rightpanelbody">
+					<div class="form-group label-floating">
+						<input type="text" class="form-control" placeholder="Text to search">
+						<p class="help-block">Search whatever you wish</p>
+					</div>
+					<center><a href="javascript:void(0)" class="btn btn-raised btn-primary ripple" data-controls-modal="#wikki" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#wikki">SEARCH</a></center>
+				</div>
+			</div>
+		</div><!--end of search bar-->
+
+		<!-- description area -->
+		<div class="desc">  <!--for description spacing-->
+			<div class="container">
+				<div class="rightpanelinfo">
+					<div class="rightpanelheading">
+						<h3 class="panel-title">Description</h3>
+					</div>
+					<div class="rightpanelbody">This is description
+					</div>
+				</div>
+			</div>
+		</div><!-- end of description -->
+
+		<!-- related domains -->
+		<div class="related-dom"><!--for related domains spacing-->
+			<div class="container">
+				<div class="rightpanelinfo">
+					<div class="rightpanelheading">
+						<h3 class="panel-title">
+							Related Domain
+						</h3>
+					</div>
+					<div class="rightpanelbody">
+						<div class="row">
+							<a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 1</a>
+							<a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 2</a>
+							<a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 3</a>
+						</div>
+						<div class="row">
+							<a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 1</a>
+							<a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 2</a>
+							<a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 3</a>
+						</div>
+					</div>
+				</div>
+			</div><!-- end of related domains -->
+
+			<!-- related technology -->
+			<div class="related-tech"><!--for related technology spacing-->
+				<div class="container">
+					<div class="rightpanelinfo">
+						<div class="rightpanelheading">
+							<h3 class="panel-title">
+								Related Technology
+							</h3>
+						</div>
+						<div class="rightpanelbody">
+							<div class="row">
+								<a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 1</a>
+								<a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 2</a>
+								<a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 3</a>
+							</div>
+							<div class="row">
+								<a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 1</a>
+								<a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 2</a>
+								<a href="javascript:void(0)" class="btn btn-raised btn-primary btn-xs ripple">tech 3</a>
+							</div>
+						</div>
+					</div>
+				</div><!-- end of related technology -->
+			</div><!-- id='right' -->
+		</div> <!-- col-md- 3 -->
+		<!-- end of right section -->
+
+		<!--  wiki modal -->
+		<div class="modal fade" id="wikki">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!-- wiki header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title">Wiki</h3>
+					</div>
+
+					<!--body (form) -->
+					<div class="modal-body">
+						<div >
+							<h4>Search</h4>
+						</div>
+						<div >
+							<h4>Explanation :</h4>
+							<div class="container even_spacing">
+								<center><img class="loadingimg" src="loader.gif"></center>
+								<p class="pre-scrollable">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+							</div>
+						</div>
+						<div>
+							<h4>Related Terms :</h4>
+							<div class="container even_spacing">
+								<a href="#" class="even_spacing">term1</a>
+								<a href="#" class="even_spacing">term1</a>
+								<a href="#" class="even_spacing">term1</a>
+								<a href="#" class="even_spacing">term1</a>
+							</div>
+						</div>
+					</div>
+
+					<!-- footer -->
+					<div class="modal-footer">
+					<!-- Remove the btn-raised class from the button -->
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+					</div>
+
+				</div><!-- modal-content -->
+			</div><!-- modal-dialog -->
+		</div><!-- end of wiki modal -->
+
+		<!-- resfeed modal -->
+		<div class="modal fade" id="resfeed">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!-- header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title">Resource Feedback</h3>
+					</div>
+
+					<!-- body (form) -->
+					<div class="modal-body">
+						<div class="even_spacing">
+							<h4>Select a score for each attribute for the resource</h4>
+							<br>
+						</div>
+						<div class="form-group even_spacing">
+							<h5><b><a href="#" data-toggle="tooltip" title="Hooray!">Attribute 1 :</a></b></h5>
+							<div class="range">
+								<input type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput1(this.value);">
+								<center><b><div class="resourcefeedsliderinput" id="textInput1">Not Rated</div></b></center>
+							</div>
+							<h5><b><a href="#" data-toggle="tooltip" title="Hooray!">Attribute 2 :</a></b></h5>
+							<div class="range">
+								<input type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput2(this.value);">
+								<center><b><div class="resourcefeedsliderinput" id="textInput2">Not Rated</div></b></center>
+							</div>
+							<h5><b><a href="#" data-toggle="tooltip" title="Hooray!">Attribute 3 :</a></b></h5>
+							<div class="range">
+								<input type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput3(this.value);">
+								<center><b><div class="resourcefeedsliderinput" id="textInput3">Not Rated</div></b></center>
+							</div>
+							<h5><b><a href="#" data-toggle="tooltip" title="Hooray!">Attribute 4 :</a></b></h5>
+							<div class="range">
+								<input type="range" name="rangeInput" class="in_range" min="0" max="5" step="0.5" value="0" onchange="updateTextInput4(this.value);">
+								<center><b><div class='resourcefeedsliderinput' id="textInput4">Not Rated</div></b></center>
+							</div>
+						</div>
+					</div>
+
+					<!--resfeed footer -->
+					<div class="modal-footer">
+					<!-- Remove the btn-raised class from the button -->
+						<button type="button" class="btn btn-primary">Send</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+					</div>
+
+				</div><!-- modal-content -->
+			</div><!-- modal-dialog -->
+		</div><!-- end of wiki modal -->
+	</div>  <!-- layout row -->
+</div> <!-- layout container -->
+</body>
+</html>

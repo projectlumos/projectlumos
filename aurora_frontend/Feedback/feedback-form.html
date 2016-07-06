@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Generic feedback form</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="feedback-form.css">
+	<link rel="stylesheet" href="http://s.mlcdn.co/animate.css">
+	<script type="text/javascript" src="feedback-form.js"></script>
+</head>
+<body>
+	<div class="container">
+		
+		<!-- heading -->
+		<div class="well heading-well">
+			<center><h2>Feedback</h2></center><hr/>
+
+			<!-- buttons -->
+			<div class="row"> 
+				<center>
+					<input type="button" class="btn btn-primary  option1 material-button" value="Resource Request">
+					<input type="button" class="btn btn-primary  option2 material-button" value="Thanks">
+					<input type="button" class="btn btn-primary  option3 material-button" value="Grievances">
+					<input type="button" class="btn btn-primary  option4 material-button" value="Collaboration Request">
+					<input type="button" class="btn btn-primary  option5 material-button" value="Custom Feedback">
+				</center>
+			</div>
+
+		</div>
+
+		<!-- nothing selected -->
+		<div class="well default-present animated fadeInUp" id="default-present">
+			<center>
+				<h2>Hello guys! All the feedback templates are ready for you, select one of the above option</h2>
+			</center>
+		</div>
+
+		<!-- Resource request form  -->
+		<div class="well form-well feed_form animated fadeInUp" id="form1">
+			<form>
+				<center><h4>Resource Request</h4></center>
+				<div class="form-group">
+					<label class="control-label">Name</label>&nbsp<span class="red-asterisk">*</span>
+					<input type="text" class="form-control" placeholder="Enter your name" required="">
+					<br>
+					<label class="control-label">Email-id</label>&nbsp<span class="red-asterisk">*</span>
+					<input type="email" class="form-control" placeholder="Enter your email-id" autocomplete="off" required="required">
+					<br>
+					<label class="control-label" id=>You want to learn</label>&nbsp<span class="red-asterisk">*</span>
+					<input type="text" class="form-control" id="learn-about" placeholder="Enter your choice" required=""> <!-- placeholder -->
+					<br>
+					<label class="control-label">Your domain is</label>
+					<input type="text" class="form-control" placeholder="Enter your domain" >
+					<br> 
+					<label class="control-label" for="learn-about">Preferred media type</label>&nbsp<span class="red-asterisk">*</span>
+					<select id="preferred_media" class="form-control" onchange="check_preferred_media()" required="">
+						<option value="">Select one</option>
+						<option value="1">Video</option>
+						<option value="2">Article</option>
+						<option value="3">Text</option>
+						<option value="4">Other</option>
+					</select>
+					<br>
+					<!-- text area for other in dropdown -->
+					<div class="hidden-textarea" id="other-hidden-textarea">
+					<textarea class="form-control"  placeholder="Enter your preferred media type" required=""></textarea>
+					</div>
+					<span class="text-muted"><em><span class="red-asterisk">*</span> Indicates required field</em></span>
+					<br>
+					<button class="btn btn-primary material-button">Send</button>
+					<button class="btn btn-danger cancel-btn" id="cancel-btn-1">Cancel</button>
+				</div>
+			</form>        
+		</div>
+
+		<!-- thanks form  -->
+		<div class="well form-well feed_form animated fadeInUp" id="form2">
+			<form>
+				<center><h4>We are glad you liked our site</h4></center>
+				<div class="form-group">
+
+					<label class="control-label">Name</label>&nbsp<span class="red-asterisk">*</span>
+					<input type="text" class="form-control" placeholder="Enter your name" required="">
+					<br>
+
+					<label class="control-label">Email-id</label>&nbsp<span class="red-asterisk">*</span>
+					<input type="email" class="form-control" placeholder="Enter your email-id" autocomplete="off" required="">
+					<br>
+
+					<label class="control-label" for="learn-about">How did you found us</label>
+					<br>
+					<div onclick="found_us()">
+						<label class="radio-inline"><input type="radio" name="optradio" id="friends">Friends</label>
+						<label class="radio-inline"><input type="radio" name="optradio" id="teachers">Teachers</label>
+						<label class="radio-inline"><input type="radio" name="optradio" id="internet">Internet</label>
+						<label class="radio-inline"><input type="radio" name="optradio" id="colleague">Colleague</label>
+						<label class="radio-inline"><input type="radio" name="optradio" id="others" >Others</label>
+					</div>
+					<div id="foundus-hidden-textarea" class="hidden-textarea">
+						<label>If by others</label>&nbsp<span class="red-asterisk">*</span>
+						<input class="form-control" required=""></input>
+					</div>
+					<br>
+
+					<label class="control-label" for="inputDefault">How often do you visit Aurora</label>
+					<select id="s1" class="form-control">
+						<option value="">Select One</option>
+						<option>Always</option>
+						<option>Oftenly</option>
+						<option>Seldom</option>
+						<option>Never</option>
+					</select>
+					<br>
+
+					<label class="control-label" for="inputDefault">Would you recommend the site to someone else</label>&nbsp<span class="red-asterisk">*</span>
+					<div class="radio" onclick="check_recommendation()">
+						<label><input type="radio" name="optradio" id="yes_recommendation">Yes</label>
+					</div>
+					<div class="radio" onclick="check_recommendation()">
+						<label><input type="radio" name="optradio" id="no_recommendation">No</label>
+					</div>
+					<div class="hidden-textarea" id="no-hidden-textarea">
+						<label>Why not?</label>&nbsp<span class="red-asterisk">*</span>
+						<textarea class="form-control" required=""></textarea>
+					</div>
+					<br>
+
+					<label class="control-label">Suggest improvements</label>
+					<textarea class="form-control" placeholder="Any suggestions"></textarea>
+					<br>
+
+					<span class="text-muted"><em><span class="red-asterisk">*</span> Indicates required field</em></span>
+					<br>
+
+					<button class="btn btn-primary material-button">Send</button>
+					<button class="btn btn-danger cancel-btn" id="cancel-btn-2">Cancel</button>
+				</div>
+			</form>
+		</div>
+
+		<!-- Grevances request form  -->
+		<div class="well form-well feed_form animated fadeInUp" id="form3">
+			<form>
+				<center><h4>Any Grievances</h4></center>
+				<div class="form-group">
+
+					<label class="control-label">Name</label>&nbsp<span class="red-asterisk">*</span>
+					<input type="text" class="form-control" placeholder="Enter your name" required="">
+					<br>
+
+					<label class="control-label">Email-id</label>&nbsp<span class="red-asterisk">*</span>
+					<input type="email" class="form-control" placeholder="Enter your email-id" required="" autocomplete="off">
+					<br>
+
+					<label class="control-label" for="learn-about">Issue subject</label>&nbsp<span class="red-asterisk">*</span>
+					<input type="text" class="form-control" id="learn-about" required="" placeholder="Enter subject">
+					<br>
+
+					<label class="control-label" for="learn-about">Issue brief</label>&nbsp<span class="red-asterisk">*</span>
+					<textarea class="form-control" required="" placeholder="A little bit about the issue"></textarea>
+					<br>
+
+					<span class="text-muted"><em><span class="red-asterisk">*</span> Indicates required field</em></span>
+					<br>
+
+					<button class="btn btn-primary material-button">Send</button>
+					<button class="btn btn-danger cancel-btn" id="cancel-btn-3">Cancel</button>
+				</div>
+			</form>
+		</div>
+
+		<!-- Collaboration Request form  -->
+		<div class="well form-well feed_form animated fadeInUp" id="form4">
+			<form>
+				<center><h4>Collaboration Request</h4></center>
+				<div class="form-group">
+					
+					<label class="control-label">Name</label>&nbsp<span class="red-asterisk">*</span>
+					<input type="text" class="form-control" placeholder="Enter your name" required="">
+					<br>
+
+					<label class="control-label">Email-id</label>&nbsp<span class="red-asterisk">*</span>
+					<input type="email" class="form-control" placeholder="Enter your email-id" required="" autocomplete="off">
+					<br>
+
+					<label class="control-label" for="learn-about">Message Subject</label>&nbsp<span class="red-asterisk">*</span>
+					<input type="text" class="form-control" id="learn-about" required="" placeholder="Enter the subject">
+					<br>
+
+					<label class="control-label" for="learn-about">Message text</label>
+					<textarea class="form-control" placeholder="A brief idea about the subject"></textarea>
+					<br>
+
+					<label class="control-label" for="learn-about">Please choose all that applies</label>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox"> We are non-profit
+						</label>
+						<br>
+						<label>
+							<input type="checkbox"> We generate our own content
+						</label>
+					</div>
+					<br>
+
+					<label class="control-label" for="learn-about">Website URL ,if any</label>
+					<input type="text" class="form-control" id="learn-about" placeholder="Enter the URL">
+					<br>
+
+					<span class="text-muted"><em><span class="red-asterisk">*</span> Indicates required field</em></span>
+					<br>
+
+					<button class="btn btn-primary material-button">Send</button>
+					<button class="btn btn-danger cancel-btn" id="cancel-btn-4">Cancel</button>
+				</div>
+			</form>
+		</div>
+
+		<!-- custom feedback form -->
+		<div class="well form-well feed_form animated fadeInUp" id="form5">
+			<form>
+				<center><h4>Your feedback</h4></center>
+				<div class="form-group">
+					<label class="control-label" >Name</label>&nbsp<span class="red-asterisk">*</span>
+					<input type="text" class="form-control" placeholder="Wassup! Enter your name" required="">
+					<br>
+					<label class="control-label">Email</label>&nbsp<span class="red-asterisk">*</span>
+					<input type="email" class="form-control" placeholder="Enter your email" autocomplete="off" required="">
+					<br>
+					<label class="control-label" for="learn-about">Text</label>&nbsp<span class="red-asterisk">*</span>
+					<textarea class="form-control" required="" rows="8" placeholder="Enter text here"></textarea>
+					<br>
+					<span class="text-muted"><em><span class="red-asterisk">*</span> Indicates required field</em></span>
+					<br>
+					<button class="btn btn-primary material-button">Send</button>
+					<button class="btn btn-danger cancel-btn" id="cancel-btn-5">Cancel</button>
+				</div>
+			</form>    
+		</div>
+	</div>
+</body>
+</html>
